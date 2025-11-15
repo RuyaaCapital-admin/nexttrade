@@ -256,11 +256,11 @@ export default function Layout({ children, currentPageName }) {
               <ul className="space-y-3 text-sm text-gray-400">
                 <li className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
-                  <span className="">+963 940 632 191</span>
+                  <span>+90 XXX XXX XXXX</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
-                  <span>info@rfttrade.com</span>
+                  <span className="">admin@ruyaacapital.com</span>
                 </li>
               </ul>
             </div>
