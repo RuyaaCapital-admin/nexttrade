@@ -537,7 +537,7 @@ export default function Home({ language = "en" }) {
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-2xl font-bold text-green-500">$2,654.32</div>
+                        <div className="text-2xl font-bold text-green-500">$3,654.32</div>
                         <div className="text-sm text-green-500 flex items-center gap-1 justify-end">
                           <TrendingUp className="w-4 h-4" />
                           +1.24%
