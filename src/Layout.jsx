@@ -37,12 +37,12 @@ export default function Layout({ children, currentPageName }) {
     <div className={`min-h-screen bg-[#FAFAF9] ${isRTL ? 'rtl' : 'ltr'}`} dir={isRTL ? 'rtl' : 'ltr'}>
       <style>{`
         :root {
-          --primary-600: #4F46E5;
-          --primary-700: #4338CA;
-          --accent-500: #F59E0B;
-          --accent-600: #D97706;
+          --primary-600: #2563eb;
+          --primary-700: #1d4ed8;
+          --accent-500: #06b6d4;
+          --accent-600: #0891b2;
           --success-500: #10B981;
-          --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          --gradient-primary: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
           --gradient-gold: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         }
         
@@ -76,12 +76,12 @@ export default function Layout({ children, currentPageName }) {
         .glow-button {
           position: relative;
           overflow: hidden;
-          box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+          box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
           transition: all 0.3s ease;
         }
 
         .glow-button:hover {
-          box-shadow: 0 0 30px rgba(79, 70, 229, 0.5);
+          box-shadow: 0 0 30px rgba(37, 99, 235, 0.5);
           transform: translateY(-2px);
         }
       `}</style>
@@ -111,8 +111,8 @@ export default function Layout({ children, currentPageName }) {
                   to={item.url}
                   className={`nav-link text-sm font-medium transition-colors ${
                     location.pathname === item.url
-                      ? 'text-indigo-600 active'
-                      : 'text-gray-700 hover:text-indigo-600'
+                      ? 'text-blue-600 active'
+                      : 'text-gray-700 hover:text-blue-600'
                   }`}
                 >
                   {item.name[language]}
@@ -139,7 +139,7 @@ export default function Layout({ children, currentPageName }) {
               </DropdownMenu>
 
               <Button 
-                className="glow-button bg-gradient-to-r from-indigo-600 to-purple-600 text-white border-0 rounded-full px-6"
+                className="glow-button bg-gradient-to-r from-blue-600 to-cyan-600 text-white border-0 rounded-full px-6 hover:from-blue-700 hover:to-cyan-700"
                 asChild
               >
                 <Link to={createPageUrl("Contact")}>
@@ -185,14 +185,14 @@ export default function Layout({ children, currentPageName }) {
                 <Link
                   key={item.url}
                   to={item.url}
-                  className="block text-gray-700 hover:text-indigo-600 font-medium"
+                  className="block text-gray-700 hover:text-blue-600 font-medium"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name[language]}
                 </Link>
               ))}
               <Button 
-                className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white"
+                className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white hover:from-blue-700 hover:to-cyan-700"
                 asChild
               >
                 <Link to={createPageUrl("Contact")} onClick={() => setMobileMenuOpen(false)}>

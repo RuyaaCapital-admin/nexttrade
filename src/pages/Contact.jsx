@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -199,14 +200,14 @@ export default function Contact({ language = "en" }) {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 text-white overflow-hidden">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute w-96 h-96 bg-indigo-500 rounded-full blur-3xl top-0 left-0 animate-pulse" />
-          <div className="absolute w-96 h-96 bg-purple-500 rounded-full blur-3xl bottom-0 right-0 animate-pulse" />
+          <div className="absolute w-96 h-96 bg-blue-500 rounded-full blur-3xl top-0 left-0 animate-pulse" />
+          <div className="absolute w-96 h-96 bg-cyan-500 rounded-full blur-3xl bottom-0 right-0 animate-pulse" />
         </div>
 
         <div className="relative max-w-4xl mx-auto text-center">
-          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center mx-auto mb-6">
+          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center mx-auto mb-6">
             <TrendingUp className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6">{t.hero.title}</h1>
@@ -310,7 +311,7 @@ export default function Contact({ language = "en" }) {
                       type="submit"
                       size="lg"
                       disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white h-14 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                      className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white h-14 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                     >
                       {isSubmitting ? (
                         t.form.submitting
@@ -340,11 +341,11 @@ export default function Contact({ language = "en" }) {
                   return (
                     <Card key={idx} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
                       <CardContent className="p-6">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center mb-4">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center mb-4">
                           <Icon className="w-6 h-6 text-white" />
                         </div>
                         <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
-                        <p className="text-indigo-600 font-medium mb-1">{item.content}</p>
+                        <p className="text-blue-600 font-medium mb-1">{item.content}</p>
                         <p className="text-sm text-gray-600">{item.desc}</p>
                       </CardContent>
                     </Card>
@@ -353,7 +354,7 @@ export default function Contact({ language = "en" }) {
               </div>
 
               {/* Benefits */}
-              <Card className="border-0 shadow-2xl bg-gradient-to-br from-slate-50 to-indigo-50">
+              <Card className="border-0 shadow-2xl bg-gradient-to-br from-slate-50 to-blue-50">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold mb-6 text-gray-900">{t.benefits.title}</h3>
                   <div className="space-y-4">

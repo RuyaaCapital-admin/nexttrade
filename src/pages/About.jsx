@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -138,10 +139,10 @@ export default function About({ language = "en" }) {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 text-white overflow-hidden">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute w-96 h-96 bg-indigo-500 rounded-full blur-3xl -top-20 -left-20" />
-          <div className="absolute w-96 h-96 bg-purple-500 rounded-full blur-3xl -bottom-20 -right-20" />
+          <div className="absolute w-96 h-96 bg-blue-500 rounded-full blur-3xl -top-20 -left-20" />
+          <div className="absolute w-96 h-96 bg-cyan-500 rounded-full blur-3xl -bottom-20 -right-20" />
         </div>
 
         <div className="relative max-w-4xl mx-auto text-center">
@@ -168,7 +169,7 @@ export default function About({ language = "en" }) {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-indigo-50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             <motion.div
@@ -178,7 +179,7 @@ export default function About({ language = "en" }) {
             >
               <Card className="h-full border-0 shadow-xl">
                 <CardContent className="p-8">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center mb-6">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center mb-6">
                     <Target className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-3xl font-bold mb-4 text-gray-900">{t.mission.title}</h3>
@@ -194,7 +195,7 @@ export default function About({ language = "en" }) {
             >
               <Card className="h-full border-0 shadow-xl">
                 <CardContent className="p-8">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center mb-6">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-600 to-blue-600 flex items-center justify-center mb-6">
                     <Globe className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-3xl font-bold mb-4 text-gray-900">{t.vision.title}</h3>
@@ -210,7 +211,7 @@ export default function About({ language = "en" }) {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
               {language === "en" ? "Our Core Values" : "قيمنا الأساسية"}
             </h2>
           </div>
@@ -228,7 +229,7 @@ export default function About({ language = "en" }) {
                 >
                   <Card className="h-full hover:shadow-2xl transition-all duration-300 border-0">
                     <CardContent className="p-6 text-center">
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center mx-auto mb-4">
+                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center mx-auto mb-4">
                         <Icon className="w-8 h-8 text-white" />
                       </div>
                       <h3 className="text-xl font-bold mb-2 text-gray-900">{value.title}</h3>
@@ -243,7 +244,7 @@ export default function About({ language = "en" }) {
       </section>
 
       {/* Stats */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-indigo-900 to-purple-900 text-white">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {t.stats.map((stat, idx) => {
@@ -257,7 +258,7 @@ export default function About({ language = "en" }) {
                   transition={{ delay: idx * 0.1 }}
                   className="text-center"
                 >
-                  <Icon className="w-12 h-12 mx-auto mb-4 text-indigo-300" />
+                  <Icon className="w-12 h-12 mx-auto mb-4 text-cyan-300" />
                   <div className="text-4xl md:text-5xl font-bold mb-2">{stat.value}</div>
                   <div className="text-gray-300">{stat.label}</div>
                 </motion.div>
@@ -284,7 +285,7 @@ export default function About({ language = "en" }) {
                 transition={{ delay: idx * 0.1 }}
                 className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow"
               >
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center flex-shrink-0">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center flex-shrink-0">
                   <span className="text-white font-bold">{idx + 1}</span>
                 </div>
                 <p className="text-lg text-gray-700">{item}</p>

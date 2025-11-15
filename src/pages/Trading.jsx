@@ -15,6 +15,7 @@ import {
   Activity,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import LivePriceTable from "../components/trading/LivePriceTable";
 
 export default function Trading({ language = "en" }) {
   const [activeTab, setActiveTab] = useState("forex");
@@ -192,10 +193,10 @@ export default function Trading({ language = "en" }) {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 text-white overflow-hidden">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute w-96 h-96 bg-indigo-500 rounded-full blur-3xl top-0 left-0" />
-          <div className="absolute w-96 h-96 bg-purple-500 rounded-full blur-3xl bottom-0 right-0" />
+          <div className="absolute w-96 h-96 bg-blue-500 rounded-full blur-3xl top-0 left-0" />
+          <div className="absolute w-96 h-96 bg-cyan-500 rounded-full blur-3xl bottom-0 right-0" />
         </div>
 
         <div className="relative max-w-4xl mx-auto text-center">
@@ -204,8 +205,26 @@ export default function Trading({ language = "en" }) {
         </div>
       </section>
 
+      {/* Live Prices Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+              {language === "en" ? "Real-Time Market Prices" : "أسعار السوق في الوقت الفعلي"}
+            </h2>
+            <p className="text-xl text-gray-600">
+              {language === "en" 
+                ? "Live prices updated every 10 seconds from global markets"
+                : "الأسعار المباشرة يتم تحديثها كل 10 ثوانٍ من الأسواق العالمية"}
+            </p>
+          </div>
+
+          <LivePriceTable language={language} />
+        </div>
+      </section>
+
       {/* Trading Instruments */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 mb-12 bg-gray-100 p-2 rounded-2xl h-auto">
@@ -215,7 +234,7 @@ export default function Trading({ language = "en" }) {
                   <TabsTrigger
                     key={key}
                     value={key}
-                    className="flex items-center gap-2 py-4 rounded-xl data-[state=active]:bg-gradient-to-r data-[state=active]:from-indigo-600 data-[state=active]:to-purple-600 data-[state=active]:text-white"
+                    className="flex items-center gap-2 py-4 rounded-xl data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-600 data-[state=active]:to-cyan-600 data-[state=active]:text-white"
                   >
                     <Icon className="w-5 h-5" />
                     <span className="font-semibold">{data.name}</span>
@@ -234,7 +253,7 @@ export default function Trading({ language = "en" }) {
                   <Card className="border-0 shadow-2xl mb-8">
                     <CardContent className="p-8">
                       <div className="flex items-start gap-6 mb-8">
-                        <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center flex-shrink-0">
+                        <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center flex-shrink-0">
                           <data.icon className="w-10 h-10 text-white" />
                         </div>
                         <div className="flex-1">
@@ -247,9 +266,9 @@ export default function Trading({ language = "en" }) {
                         {data.features.map((feature, idx) => (
                           <div
                             key={idx}
-                            className="bg-gradient-to-br from-slate-50 to-indigo-50 rounded-xl p-4 text-center"
+                            className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-xl p-4 text-center"
                           >
-                            <Activity className="w-6 h-6 mx-auto mb-2 text-indigo-600" />
+                            <Activity className="w-6 h-6 mx-auto mb-2 text-blue-600" />
                             <p className="text-sm font-medium text-gray-700">{feature}</p>
                           </div>
                         ))}
@@ -265,10 +284,10 @@ export default function Trading({ language = "en" }) {
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: idx * 0.1 }}
-                            className="flex items-center justify-between p-4 bg-white rounded-xl border border-gray-200 hover:border-indigo-300 hover:shadow-md transition-all"
+                            className="flex items-center justify-between p-4 bg-white rounded-xl border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all"
                           >
                             <div className="flex items-center gap-4">
-                              <LineChart className="w-8 h-8 text-indigo-600" />
+                              <LineChart className="w-8 h-8 text-blue-600" />
                               <div>
                                 <h4 className="font-bold text-gray-900">{pair.pair}</h4>
                                 <p className="text-sm text-gray-600">{pair.description}</p>
@@ -290,10 +309,10 @@ export default function Trading({ language = "en" }) {
       </section>
 
       {/* Advantages */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-indigo-50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
               {language === "en" ? "Trading Advantages" : "مزايا التداول"}
             </h2>
           </div>
@@ -311,7 +330,7 @@ export default function Trading({ language = "en" }) {
                 >
                   <Card className="h-full border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                     <CardContent className="p-6 text-center">
-                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center mx-auto mb-4">
+                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center mx-auto mb-4">
                         <Icon className="w-8 h-8 text-white" />
                       </div>
                       <h3 className="text-xl font-bold mb-2 text-gray-900">{advantage.title}</h3>
