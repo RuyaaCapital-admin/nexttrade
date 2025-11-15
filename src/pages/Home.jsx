@@ -604,8 +604,23 @@ export default function Home({ language = "en" }) {
             viewport={{ once: true }}
             className="mt-12 text-center">
 
-            <Card className="border-0 shadow-2xl bg-gradient-to-r from-blue-600 to-cyan-600">
-              <CardContent className="p-8 md:p-12">
+            <Card className="border-0 shadow-2xl overflow-hidden relative">
+              {/* Background Image */}
+              <div
+                className="absolute inset-0 opacity-30"
+                style={{
+                  backgroundImage: 'url(https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/960fe71f0_c32b0808-8445-4776-a5ac-79a60d1d694a.png)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat'
+                }}
+              />
+
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/95 to-cyan-600/95" />
+
+              {/* Content */}
+              <CardContent className="relative p-8 md:p-12">
                 <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   {language === "en" ?
                     "Ready to Claim Your Bonuses?" :
@@ -728,7 +743,7 @@ export default function Home({ language = "en" }) {
                   <motion.div
                     key={idx}
                     initial={{ opacity: 0, scale: 0.8, rotateY: -15 }}
-                    whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1, rotateY: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1, duration: 0.6 }}
                     whileHover={{
