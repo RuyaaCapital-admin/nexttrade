@@ -302,18 +302,15 @@ export default function Home({ language = "en" }) {
 
               {/* MT5 Platform Badge */}
               <motion.div
-                className="flex items-center gap-3 mb-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl px-6 py-4 w-fit"
+                className="mb-10 w-fit"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 1 }}>
 
-                <div className="text-sm text-gray-400 font-medium">
-                  {language === "ar" ? "منصة التداول:" : "Trading Platform:"}
-                </div>
                 <img
                   src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/4d9486265_a0d196db-a9b9-45ae-805d-c78916d35de7.png"
                   alt="MetaTrader 5"
-                  className="h-10 w-auto"
+                  className="h-16 w-auto"
                 />
               </motion.div>
 
