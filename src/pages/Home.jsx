@@ -210,10 +210,10 @@ export default function Home({ language = "en" }) {
 
   return (
     <div className="overflow-hidden">
-      {/* Hero Section with Background Image */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        {/* Background Image with Overlay - Fixed */}
-        <div className="absolute inset-0 pointer-events-none">
+      {/* Hero Section with Background Image - FIXED */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden isolate">
+        {/* Background Image with Overlay - Completely Non-Interactive */}
+        <div className="absolute inset-0 pointer-events-none select-none" style={{ zIndex: -1 }}>
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
@@ -249,7 +249,8 @@ export default function Home({ language = "en" }) {
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white border-0 rounded-full px-8 py-6 text-lg shadow-2xl hover:shadow-indigo-500/50 transition-all duration-300 hover:scale-105"
+                  className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white border-0 rounded-full px-8 py-6 text-lg shadow-2xl transition-all duration-300"
+                  style={{ boxShadow: '0 10px 40px rgba(79, 70, 229, 0.3)' }}
                   asChild
                 >
                   <Link to={createPageUrl("Contact")}>
@@ -261,7 +262,7 @@ export default function Home({ language = "en" }) {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="bg-white/10 hover:bg-white/20 text-white border-white/30 backdrop-blur-sm rounded-full px-8 py-6 text-lg"
+                  className="bg-white/10 text-white border-white/30 backdrop-blur-sm rounded-full px-8 py-6 text-lg transition-all duration-300"
                   asChild
                 >
                   <Link to={createPageUrl("Contact")}>
@@ -336,6 +337,7 @@ export default function Home({ language = "en" }) {
         </div>
       </section>
 
+      {/* Rest of the sections remain unchanged */}
       {/* Exclusive Registration Bonuses */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-white to-indigo-50">
         <div className="max-w-7xl mx-auto">
