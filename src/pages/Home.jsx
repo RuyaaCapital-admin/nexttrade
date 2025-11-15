@@ -37,7 +37,6 @@ export default function Home({ language = "en" }) {
   const content = {
     en: {
       hero: {
-        badge: "Regulated Broker",
         title: "Trade Smarter with RFT Trade",
         subtitle: "Access 120+ Financial Instruments with Zero Commission",
         cta1: "Open Live Account",
@@ -123,7 +122,6 @@ export default function Home({ language = "en" }) {
     },
     ar: {
       hero: {
-        badge: "وسيط منظم",
         title: "تداول بذكاء مع RFT Trade",
         subtitle: "احصل على أكثر من 120 أداة مالية بدون عمولة",
         cta1: "فتح حساب حقيقي",
@@ -218,7 +216,7 @@ export default function Home({ language = "en" }) {
       price: "2,654.32",
       change: "+1.24%",
       isPositive: true,
-      icon: "🥇"
+      icon: Coins
     },
     { 
       symbol: "NAS100",
@@ -226,7 +224,7 @@ export default function Home({ language = "en" }) {
       price: "16,428.82",
       change: "+0.87%",
       isPositive: true,
-      icon: "📈"
+      icon: BarChart3
     },
     { 
       symbol: "EUR/USD",
@@ -234,13 +232,13 @@ export default function Home({ language = "en" }) {
       price: "1.0865",
       change: "-0.15%",
       isPositive: false,
-      icon: "💱"
+      icon: DollarSign
     }
   ];
 
   return (
     <div className="overflow-hidden bg-white">
-      {/* Hero Section - Enhanced Professional Design */}
+      {/* Hero Section - Enhanced with AI Chat */}
       <section className="relative min-h-[95vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
         {/* Animated Background Pattern */}
         <div className="absolute inset-0 opacity-10">
@@ -271,21 +269,42 @@ export default function Home({ language = "en" }) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}>
 
-              <Badge className="mb-6 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 text-white border border-blue-500/30 backdrop-blur-md px-4 py-2 text-sm">
-                <Shield className="w-4 h-4 mr-2 inline" />
-                {t.hero.badge}
-              </Badge>
+              {/* Animated Hero Title */}
+              <motion.h1 
+                className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.2 }}
+              >
+                {t.hero.title.split(' ').map((word, idx) => (
+                  <motion.span
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 + idx * 0.1 }}
+                    className="inline-block mr-3"
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </motion.h1>
 
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                {t.hero.title}
-              </h1>
-
-              <p className="text-xl md:text-2xl text-gray-300 mb-8">
+              <motion.p 
+                className="text-xl md:text-2xl text-gray-300 mb-8"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+              >
                 {t.hero.subtitle}
-              </p>
+              </motion.p>
 
               {/* MT5 Platform Badge */}
-              <div className="flex items-center gap-3 mb-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl px-6 py-4 w-fit">
+              <motion.div 
+                className="flex items-center gap-3 mb-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl px-6 py-4 w-fit"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 1 }}
+              >
                 <div className="text-sm text-gray-400 font-medium">
                   {language === "ar" ? "منصة التداول:" : "Trading Platform:"}
                 </div>
@@ -294,9 +313,14 @@ export default function Home({ language = "en" }) {
                     MT5
                   </span>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <motion.div 
+                className="flex flex-col sm:flex-row gap-4 mb-12"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.2 }}
+              >
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white border-0 rounded-full px-8 py-6 text-lg shadow-2xl shadow-blue-500/50 transition-all duration-300 hover:shadow-blue-500/70"
@@ -318,7 +342,7 @@ export default function Home({ language = "en" }) {
                     {t.hero.cta2}
                   </Link>
                 </Button>
-              </div>
+              </motion.div>
 
               {/* Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -327,7 +351,7 @@ export default function Home({ language = "en" }) {
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.1 + 0.5 }}
+                  transition={{ delay: idx * 0.1 + 1.4 }}
                   className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/10 hover:border-blue-500/50 transition-all duration-300">
 
                     <div className="text-2xl md:text-3xl font-bold text-white mb-1">
@@ -339,86 +363,13 @@ export default function Home({ language = "en" }) {
               </div>
             </motion.div>
 
-            {/* Right Content - Live Market Data Card */}
+            {/* Right Content - AI Trading Chat */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
               className="hidden lg:block">
-
-              <Card className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 shadow-2xl">
-                <CardContent className="p-8">
-                  <div className="space-y-6">
-                    <div className="flex items-center justify-between pb-4 border-b border-white/20">
-                      <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
-                          <Activity className="w-6 h-6 text-white" />
-                        </div>
-                        <div>
-                          <div className="text-white font-bold text-lg">
-                            {language === "ar" ? "الأسواق المباشرة" : "Live Markets"}
-                          </div>
-                          <div className="text-sm text-gray-400">
-                            {language === "ar" ? "أسعار في الوقت الفعلي" : "Real-time Prices"}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                        <span className="text-xs text-green-400 font-medium">LIVE</span>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-4">
-                      {marketData.map((item, idx) => (
-                        <motion.div
-                          key={idx}
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.8 + idx * 0.1 }}
-                          className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:border-blue-500/50 transition-all duration-300"
-                        >
-                          <div className="flex items-center justify-between mb-2">
-                            <div className="flex items-center gap-3">
-                              <span className="text-2xl">{item.icon}</span>
-                              <div>
-                                <div className="text-white font-bold">{item.symbol}</div>
-                                <div className="text-xs text-gray-400">{item.name}</div>
-                              </div>
-                            </div>
-                            <div className="text-right">
-                              <div className="text-white font-bold text-lg">{item.price}</div>
-                              <div className={`text-sm font-medium flex items-center gap-1 ${
-                                item.isPositive ? 'text-green-400' : 'text-red-400'
-                              }`}>
-                                {item.isPositive ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
-                                {item.change}
-                              </div>
-                            </div>
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
-
-                    <div className="pt-4 border-t border-white/20">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400">
-                            $1,250.50
-                          </div>
-                          <div className="text-sm text-gray-400">
-                            {language === "ar" ? "الربح اليومي" : "Today's Profit"}
-                          </div>
-                        </div>
-                        <div className="text-right">
-                          <div className="text-green-400 font-bold text-xl">+8.4%</div>
-                          <div className="text-xs text-gray-400">ROI</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              <AITradingChat language={language} />
             </motion.div>
           </div>
         </div>
@@ -582,7 +533,7 @@ export default function Home({ language = "en" }) {
         </div>
       </section>
 
-      {/* AI Trading Chat Demo */}
+      {/* Why Choose Us with Live Market Data */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -615,12 +566,91 @@ export default function Home({ language = "en" }) {
               </div>
             </motion.div>
 
+            {/* Live Market Data Card */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}>
 
-              <AITradingChat language={language} />
+              <Card className="bg-gradient-to-br from-slate-50 to-white border-2 border-slate-200 shadow-2xl">
+                <CardContent className="p-8">
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between pb-4 border-b border-slate-200">
+                      <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
+                          <Activity className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <div className="text-gray-900 font-bold text-lg">
+                            {language === "ar" ? "الأسواق المباشرة" : "Live Markets"}
+                          </div>
+                          <div className="text-sm text-gray-600">
+                            {language === "ar" ? "أسعار في الوقت الفعلي" : "Real-time Prices"}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                        <span className="text-xs text-green-500 font-medium">LIVE</span>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      {marketData.map((item, idx) => {
+                        const Icon = item.icon;
+                        return (
+                          <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 + idx * 0.1 }}
+                            className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-4 border border-slate-200 hover:border-blue-500/50 transition-all duration-300"
+                          >
+                            <div className="flex items-center justify-between mb-2">
+                              <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center">
+                                  <Icon className="w-5 h-5 text-white" />
+                                </div>
+                                <div>
+                                  <div className="text-gray-900 font-bold">{item.symbol}</div>
+                                  <div className="text-xs text-gray-600">{item.name}</div>
+                                </div>
+                              </div>
+                              <div className="text-right">
+                                <div className="text-gray-900 font-bold text-lg">{item.price}</div>
+                                <div className={`text-sm font-medium flex items-center gap-1 ${
+                                  item.isPositive ? 'text-green-500' : 'text-red-500'
+                                }`}>
+                                  {item.isPositive ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
+                                  {item.change}
+                                </div>
+                              </div>
+                            </div>
+                          </motion.div>
+                        );
+                      })}
+                    </div>
+
+                    <div className="pt-4 border-t border-slate-200">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-500">
+                            $1,250.50
+                          </div>
+                          <div className="text-sm text-gray-600">
+                            {language === "ar" ? "الربح اليومي" : "Today's Profit"}
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <div className="text-green-500 font-bold text-xl">+8.4%</div>
+                          <div className="text-xs text-gray-600">ROI</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
           </div>
         </div>
