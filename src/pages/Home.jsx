@@ -24,8 +24,6 @@ import {
   Bell,
   Wallet,
   Bot,
-  TrendingDown,
-  Clock,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -214,8 +212,8 @@ export default function Home({ language = "en" }) {
     <div className="overflow-hidden">
       {/* Hero Section with Background Image */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0">
+        {/* Background Image with Overlay - Fixed */}
+        <div className="absolute inset-0 pointer-events-none">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
@@ -291,52 +289,48 @@ export default function Home({ language = "en" }) {
               </div>
             </motion.div>
 
-            {/* Right Content - Floating Cards */}
+            {/* Right Content - Static Info Card */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="hidden lg:block"
             >
-              <div className="relative">
-                {/* Animated Floating Card 1 */}
-                <motion.div
-                  animate={{ y: [0, -20, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-0 right-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 w-64"
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center">
-                      <TrendingUp className="w-5 h-5 text-white" />
+              <Card className="bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl">
+                <CardContent className="p-8">
+                  <div className="space-y-6">
+                    <div className="flex items-center gap-4 pb-4 border-b border-white/20">
+                      <div className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center">
+                        <TrendingUp className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <div className="text-white font-bold text-lg">Active Trades</div>
+                        <div className="text-sm text-gray-300">Real-time market access</div>
+                      </div>
                     </div>
-                    <div>
-                      <div className="text-white font-bold">EUR/USD</div>
-                      <div className="text-xs text-gray-300">Active Trade</div>
+                    
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-300">EUR/USD</span>
+                        <span className="text-green-400 font-bold">+2.45%</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-300">Gold</span>
+                        <span className="text-blue-400 font-bold">+1.20%</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-300">BTC/USD</span>
+                        <span className="text-purple-400 font-bold">+3.15%</span>
+                      </div>
                     </div>
-                  </div>
-                  <div className="text-2xl font-bold text-green-400 mb-1">+$1,250.50</div>
-                  <div className="text-sm text-gray-300">+2.45% Today</div>
-                </motion.div>
 
-                {/* Animated Floating Card 2 */}
-                <motion.div
-                  animate={{ y: [0, 20, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className="absolute top-48 left-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 w-64"
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center">
-                      <LineChart className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <div className="text-white font-bold">Gold</div>
-                      <div className="text-xs text-gray-300">Trending Up</div>
+                    <div className="pt-4 border-t border-white/20">
+                      <div className="text-3xl font-bold text-white mb-1">$1,250.50</div>
+                      <div className="text-sm text-gray-300">Total Profit Today</div>
                     </div>
                   </div>
-                  <div className="text-2xl font-bold text-blue-400 mb-1">$2,050.75</div>
-                  <div className="text-sm text-gray-300">+1.2% This Week</div>
-                </motion.div>
-              </div>
+                </CardContent>
+              </Card>
             </motion.div>
           </div>
         </div>
