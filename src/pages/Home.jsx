@@ -384,7 +384,7 @@ export default function Home({ language = "en" }) {
               <Sparkles className="w-4 h-4 mr-2 inline" />
               {language === "en" ? "Limited Time Offer" : "عرض لفترة محدودة"}
             </Badge>
-            <h2 className="bg-clip-text text-transparent mx-auto my-3 pt-8 pb-8 text-4xl font-bold rounded md:text-5xl from-blue-600 to-cyan-600">
+            <h2 className="bg-clip-text text-blue-600 mx-auto my-3 pt-8 pb-8 text-4xl font-bold rounded md:text-5xl from-blue-600 to-cyan-600">
               {t.exclusiveOffers.title}
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">{t.exclusiveOffers.subtitle}</p>
