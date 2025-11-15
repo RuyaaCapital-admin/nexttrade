@@ -310,11 +310,11 @@ export default function Home({ language = "en" }) {
                 <div className="text-sm text-gray-400 font-medium">
                   {language === "ar" ? "منصة التداول:" : "Trading Platform:"}
                 </div>
-                <div className="flex items-center gap-2 bg-white rounded-lg px-4 py-2">
-                  <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                    MT5
-                  </span>
-                </div>
+                <img
+                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/4d9486265_a0d196db-a9b9-45ae-805d-c78916d35de7.png"
+                  alt="MetaTrader 5"
+                  className="h-10 w-auto"
+                />
               </motion.div>
 
               <motion.div
