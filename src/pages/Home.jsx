@@ -634,7 +634,7 @@ export default function Home({ language = "en" }) {
             <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
               {t.instruments.title}
             </h2>
-            <p className="text-xl text-gray-600">{t.instruments.subtitle}</p>
+            <p className="text-xl text-gray-600}>{t.instruments.subtitle}</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -898,14 +898,14 @@ export default function Home({ language = "en" }) {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/8095c590d_d3674566-7855-461d-9c9a-79d4a85271fc.png"
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/85cac722c_ChatGPTImageNov15202504_05_14PM.png"
               alt="Trading Steps"
-              className="w-full max-w-5xl h-auto"
+              className="w-full max-w-4xl h-auto"
             />
           </div>
 
           {/* Step Labels */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {t.steps.items.map((step, idx) =>
               <motion.div
                 key={idx}
@@ -914,8 +914,8 @@ export default function Home({ language = "en" }) {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
                 className="text-center">
-                <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
-                <p className="text-gray-300">{step.desc}</p>
+                <h3 className="text-xl font-bold mb-1">{step.title}</h3>
+                <p className="text-gray-400 text-sm">{step.desc}</p>
               </motion.div>
             )}
           </div>
