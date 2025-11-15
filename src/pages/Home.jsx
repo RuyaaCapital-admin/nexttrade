@@ -25,8 +25,8 @@ import {
   Wallet,
   Bot,
   TrendingDown,
-  Activity,
-} from "lucide-react";
+  Activity } from
+"lucide-react";
 import { motion } from "framer-motion";
 import AITradingChat from "../components/home/AITradingChat";
 
@@ -211,31 +211,31 @@ export default function Home({ language = "en" }) {
   const t = content[language];
 
   const marketData = [
-    { 
-      symbol: "XAU/USD",
-      name: language === "ar" ? "الذهب" : "Gold",
-      price: "2,654.32",
-      change: "+1.24%",
-      isPositive: true,
-      icon: Coins
-    },
-    { 
-      symbol: "NAS100",
-      name: language === "ar" ? "ناسداك" : "NASDAQ",
-      price: "16,428.82",
-      change: "+0.87%",
-      isPositive: true,
-      icon: BarChart3
-    },
-    { 
-      symbol: "EUR/USD",
-      name: language === "ar" ? "يورو/دولار" : "Euro",
-      price: "1.0865",
-      change: "-0.15%",
-      isPositive: false,
-      icon: DollarSign
-    }
-  ];
+  {
+    symbol: "XAU/USD",
+    name: language === "ar" ? "الذهب" : "Gold",
+    price: "2,654.32",
+    change: "+1.24%",
+    isPositive: true,
+    icon: Coins
+  },
+  {
+    symbol: "NAS100",
+    name: language === "ar" ? "ناسداك" : "NASDAQ",
+    price: "16,428.82",
+    change: "+0.87%",
+    isPositive: true,
+    icon: BarChart3
+  },
+  {
+    symbol: "EUR/USD",
+    name: language === "ar" ? "يورو/دولار" : "Euro",
+    price: "1.0865",
+    change: "-0.15%",
+    isPositive: false,
+    icon: DollarSign
+  }];
+
 
   return (
     <div className="overflow-hidden bg-white">
@@ -271,41 +271,41 @@ export default function Home({ language = "en" }) {
               transition={{ duration: 0.8 }}>
 
               {/* Animated Hero Title */}
-              <motion.h1 
+              <motion.h1
                 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.2 }}
-              >
-                {t.hero.title.split(' ').map((word, idx) => (
-                  <motion.span
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 + idx * 0.1 }}
-                    className="inline-block mr-3"
-                  >
+                transition={{ duration: 1, delay: 0.2 }}>
+                
+                {t.hero.title.split(' ').map((word, idx) =>
+                <motion.span
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 + idx * 0.1 }}
+                  className="inline-block mr-3">
+                  
                     {word}
                   </motion.span>
-                ))}
+                )}
               </motion.h1>
 
-              <motion.p 
+              <motion.p
                 className="text-xl md:text-2xl text-gray-300 mb-8"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-              >
+                transition={{ duration: 0.8, delay: 0.8 }}>
+                
                 {t.hero.subtitle}
               </motion.p>
 
               {/* MT5 Platform Badge */}
-              <motion.div 
+              <motion.div
                 className="flex items-center gap-3 mb-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl px-6 py-4 w-fit"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 1 }}
-              >
+                transition={{ duration: 0.5, delay: 1 }}>
+                
                 <div className="text-sm text-gray-400 font-medium">
                   {language === "ar" ? "منصة التداول:" : "Trading Platform:"}
                 </div>
@@ -316,12 +316,12 @@ export default function Home({ language = "en" }) {
                 </div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 className="flex flex-col sm:flex-row gap-4 mb-12"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 1.2 }}
-              >
+                transition={{ duration: 0.5, delay: 1.2 }}>
+                
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white border-0 rounded-full px-8 py-6 text-lg shadow-2xl shadow-blue-500/50 transition-all duration-300 hover:shadow-blue-500/70"
@@ -384,7 +384,7 @@ export default function Home({ language = "en" }) {
               <Sparkles className="w-4 h-4 mr-2 inline" />
               {language === "en" ? "Limited Time Offer" : "عرض لفترة محدودة"}
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+            <h2 className="bg-clip-text text-transparent mx-auto my-3 pt-8 pb-8 text-4xl font-bold rounded md:text-5xl from-blue-600 to-cyan-600">
               {t.exclusiveOffers.title}
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">{t.exclusiveOffers.subtitle}</p>
@@ -510,14 +510,14 @@ export default function Home({ language = "en" }) {
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative"
-            >
+              className="relative">
+              
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <img 
+                <img
                   src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/ac624df0c_f51701e3-dbf6-4070-88f9-c4844c0a676e.png"
                   alt="XAU/USD Trading"
-                  className="w-full h-auto"
-                />
+                  className="w-full h-auto" />
+                
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
                 
@@ -526,8 +526,8 @@ export default function Home({ language = "en" }) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
-                  className="absolute bottom-8 left-8 right-8"
-                >
+                  className="absolute bottom-8 left-8 right-8">
+                  
                   <div className="bg-white/90 backdrop-blur-md rounded-2xl p-6 shadow-xl">
                     <div className="flex items-center justify-between">
                       <div>
@@ -560,7 +560,7 @@ export default function Home({ language = "en" }) {
                     whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1, duration: 0.6 }}
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.05,
                       rotateY: 5,
                       z: 50,
@@ -568,28 +568,28 @@ export default function Home({ language = "en" }) {
                     }}
                     onHoverStart={() => setHoveredCard(idx)}
                     onHoverEnd={() => setHoveredCard(null)}
-                    style={{ transformStyle: 'preserve-3d' }}
-                  >
+                    style={{ transformStyle: 'preserve-3d' }}>
+                    
                     <Card className={`h-full bg-white border-0 shadow-xl transition-all duration-300 ${
-                      hoveredCard === idx ? 'shadow-2xl' : ''
-                    }`}>
+                    hoveredCard === idx ? 'shadow-2xl' : ''}`
+                    }>
                       <CardContent className="p-6 relative">
                         {/* Animated Gradient Background */}
                         <motion.div
                           className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-xl opacity-0"
                           animate={{ opacity: hoveredCard === idx ? 1 : 0 }}
-                          transition={{ duration: 0.3 }}
-                        />
+                          transition={{ duration: 0.3 }} />
+                        
                         
                         <div className="relative z-10">
                           <motion.div
-                            animate={{ 
+                            animate={{
                               rotate: hoveredCard === idx ? 360 : 0,
                               scale: hoveredCard === idx ? 1.1 : 1
                             }}
                             transition={{ duration: 0.6 }}
-                            className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center mb-4 shadow-lg"
-                          >
+                            className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center mb-4 shadow-lg">
+                            
                             <Icon className="w-8 h-8 text-white" />
                           </motion.div>
                           
@@ -603,13 +603,13 @@ export default function Home({ language = "en" }) {
                           {/* Hover Details */}
                           <motion.div
                             initial={{ opacity: 0, y: 10 }}
-                            animate={{ 
+                            animate={{
                               opacity: hoveredCard === idx ? 1 : 0,
                               y: hoveredCard === idx ? 0 : 10
                             }}
                             transition={{ duration: 0.3 }}
-                            className="mt-4 pt-4 border-t border-gray-200"
-                          >
+                            className="mt-4 pt-4 border-t border-gray-200">
+                            
                             <div className="flex items-center justify-between text-xs">
                               <span className="text-gray-600">
                                 {language === "ar" ? "السبريد من" : "Spread from"}
@@ -620,8 +620,8 @@ export default function Home({ language = "en" }) {
                         </div>
                       </CardContent>
                     </Card>
-                  </motion.div>
-                );
+                  </motion.div>);
+
               })}
             </div>
           </div>
@@ -700,8 +700,8 @@ export default function Home({ language = "en" }) {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 + idx * 0.1 }}
-                            className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-4 border border-slate-200 hover:border-blue-500/50 transition-all duration-300"
-                          >
+                            className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-4 border border-slate-200 hover:border-blue-500/50 transition-all duration-300">
+                            
                             <div className="flex items-center justify-between mb-2">
                               <div className="flex items-center gap-3">
                                 <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center">
@@ -715,15 +715,15 @@ export default function Home({ language = "en" }) {
                               <div className="text-right">
                                 <div className="text-gray-900 font-bold text-lg">{item.price}</div>
                                 <div className={`text-sm font-medium flex items-center gap-1 ${
-                                  item.isPositive ? 'text-green-500' : 'text-red-500'
-                                }`}>
+                                item.isPositive ? 'text-green-500' : 'text-red-500'}`
+                                }>
                                   {item.isPositive ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
                                   {item.change}
                                 </div>
                               </div>
                             </div>
-                          </motion.div>
-                        );
+                          </motion.div>);
+
                       })}
                     </div>
 
