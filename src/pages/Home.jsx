@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
@@ -390,40 +391,240 @@ export default function Home({ language = "en" }) {
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">{t.exclusiveOffers.subtitle}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {t.exclusiveOffers.offers.map((offer, idx) => {
-              const Icon = offer.icon;
-              return (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  whileHover={{ y: -10 }}
-                  className="relative">
-
-                  <Card className="h-full border-0 shadow-xl bg-white hover:shadow-2xl transition-all duration-300">
-                    <CardContent className="p-6">
-                      <Badge className={`absolute top-4 right-4 bg-gradient-to-r ${offer.color} text-white border-0 text-xs px-3 py-1`}>
-                        {offer.badge}
-                      </Badge>
-
-                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${offer.color} flex items-center justify-center mb-6 shadow-lg`}>
-                        <Icon className="w-8 h-8 text-white" />
-                      </div>
-
-                      <h3 className="text-xl font-bold mb-3 text-gray-900">
-                        {offer.title}
+          {/* Visual Benefits Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            {/* Welcome Bonus Visualization */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <Card className="h-full border-0 shadow-2xl bg-gradient-to-br from-orange-50 to-red-50 overflow-hidden">
+                <CardContent className="p-8">
+                  <Badge className="bg-gradient-to-r from-orange-500 to-red-500 text-white border-0 text-xs px-3 py-1 mb-4">
+                    {language === "en" ? "Limited Time" : "عرض محدود"}
+                  </Badge>
+                  
+                  <div className="flex items-start gap-6 mb-6">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center shadow-xl flex-shrink-0">
+                      <Gift className="w-10 h-10 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                        {language === "en" ? "Welcome Bonus" : "مكافأة الترحيب"}
                       </h3>
-                      <p className="text-gray-600 leading-relaxed">
-                        {offer.desc}
+                      <p className="text-gray-700 leading-relaxed">
+                        {language === "en" 
+                          ? "Up to $500 trading bonus on your first deposit"
+                          : "ما يصل إلى 500 دولار مكافأة تداول على إيداعك الأول"}
                       </p>
-                    </CardContent>
-                  </Card>
-                </motion.div>);
+                    </div>
+                  </div>
 
-            })}
+                  {/* Visual Example */}
+                  <div className="bg-white/70 backdrop-blur-sm rounded-xl p-5 border border-orange-200">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-sm text-gray-600 font-medium">
+                        {language === "en" ? "Your Deposit" : "إيداعك"}
+                      </span>
+                      <span className="text-lg font-bold text-gray-900">$1,000</span>
+                    </div>
+                    <div className="flex items-center justify-between mb-3 pb-3 border-b border-gray-200">
+                      <span className="text-sm text-gray-600 font-medium">
+                        {language === "en" ? "Bonus (50%)" : "المكافأة (50%)"}
+                      </span>
+                      <span className="text-lg font-bold text-orange-500">+$500</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-base font-semibold text-gray-900">
+                        {language === "en" ? "Total Trading Capital" : "رأس المال الكلي"}
+                      </span>
+                      <span className="text-2xl font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
+                        $1,500
+                      </span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* AI Assistant Visualization */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <Card className="h-full border-0 shadow-2xl bg-gradient-to-br from-indigo-50 to-purple-50 overflow-hidden">
+                <CardContent className="p-8">
+                  <Badge className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-0 text-xs px-3 py-1 mb-4">
+                    {language === "en" ? "Premium Feature" : "ميزة مميزة"}
+                  </Badge>
+                  
+                  <div className="flex items-start gap-6 mb-6">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center shadow-xl flex-shrink-0">
+                      <Bot className="w-10 h-10 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                        {language === "en" ? "AI Trading Assistant" : "مساعد التداول بالذكاء الاصطناعي"}
+                      </h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        {language === "en" 
+                          ? "Advanced AI-powered trading advisor with real-time analysis"
+                          : "مستشار تداول متقدم بالذكاء الاصطناعي مع تحليل فوري"}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Visual Example - AI Analysis */}
+                  <div className="bg-white/70 backdrop-blur-sm rounded-xl p-5 border border-indigo-200">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 rounded-full bg-green-500" />
+                        <span className="text-sm text-gray-700">
+                          {language === "en" ? "Real-time market analysis" : "تحليل السوق في الوقت الفعلي"}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 rounded-full bg-green-500" />
+                        <span className="text-sm text-gray-700">
+                          {language === "en" ? "Automated trade suggestions" : "اقتراحات تداول آلية"}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 rounded-full bg-green-500" />
+                        <span className="text-sm text-gray-700">
+                          {language === "en" ? "Risk management alerts" : "تنبيهات إدارة المخاطر"}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 rounded-full bg-green-500" />
+                        <span className="text-sm text-gray-700">
+                          {language === "en" ? "24/7 trading support" : "دعم تداول على مدار الساعة"}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Live Signals Visualization */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="relative"
+            >
+              <Card className="h-full border-0 shadow-2xl bg-gradient-to-br from-green-50 to-emerald-50 overflow-hidden">
+                <CardContent className="p-8">
+                  <Badge className="bg-gradient-to-r from-green-500 to-emerald-500 text-white border-0 text-xs px-3 py-1 mb-4">
+                    {language === "en" ? "Free Forever" : "مجاني للأبد"}
+                  </Badge>
+                  
+                  <div className="flex items-start gap-6 mb-6">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center shadow-xl flex-shrink-0">
+                      <Bell className="w-10 h-10 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                        {language === "en" ? "Live Trade Signals" : "إشارات التداول المباشرة"}
+                      </h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        {language === "en" 
+                          ? "Real-time signals from expert analysts"
+                          : "إشارات فورية من محللين خبراء"}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Visual Example - Signal Card */}
+                  <div className="bg-white/70 backdrop-blur-sm rounded-xl p-5 border border-green-200">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-2">
+                        <LineChart className="w-5 h-5 text-green-600" />
+                        <span className="font-bold text-gray-900">EUR/USD</span>
+                      </div>
+                      <Badge className="bg-green-500 text-white border-0 text-xs">
+                        {language === "en" ? "BUY" : "شراء"}
+                      </Badge>
+                    </div>
+                    <div className="grid grid-cols-2 gap-3 text-sm">
+                      <div>
+                        <div className="text-gray-600 text-xs">{language === "en" ? "Entry" : "دخول"}</div>
+                        <div className="font-bold text-gray-900">1.0865</div>
+                      </div>
+                      <div>
+                        <div className="text-gray-600 text-xs">{language === "en" ? "Target" : "هدف"}</div>
+                        <div className="font-bold text-green-600">1.0920</div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Instant Withdrawals Visualization */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="relative"
+            >
+              <Card className="h-full border-0 shadow-2xl bg-gradient-to-br from-blue-50 to-cyan-50 overflow-hidden">
+                <CardContent className="p-8">
+                  <Badge className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white border-0 text-xs px-3 py-1 mb-4">
+                    {language === "en" ? "No Limits" : "بدون حدود"}
+                  </Badge>
+                  
+                  <div className="flex items-start gap-6 mb-6">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-xl flex-shrink-0">
+                      <Wallet className="w-10 h-10 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                        {language === "en" ? "Instant Withdrawals" : "سحب فوري"}
+                      </h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        {language === "en" 
+                          ? "Withdraw profits 24/7 with zero fees"
+                          : "اسحب أرباحك على مدار الساعة بدون رسوم"}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Visual Example - Withdrawal Process */}
+                  <div className="bg-white/70 backdrop-blur-sm rounded-xl p-5 border border-blue-200">
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">
+                          {language === "en" ? "Processing Time" : "وقت المعالجة"}
+                        </span>
+                        <span className="font-bold text-blue-600">
+                          {language === "en" ? "Instant" : "فوري"}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-600">
+                          {language === "en" ? "Fees" : "الرسوم"}
+                        </span>
+                        <span className="font-bold text-green-600">$0.00</span>
+                      </div>
+                      <div className="flex items-center justify-between pt-3 border-t border-gray-200">
+                        <span className="text-sm font-semibold text-gray-900">
+                          {language === "en" ? "Available 24/7" : "متاح 24/7"}
+                        </span>
+                        <CheckCircle className="w-5 h-5 text-green-500" />
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
 
           {/* CTA Banner */}
@@ -431,7 +632,7 @@ export default function Home({ language = "en" }) {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-12 text-center">
+            className="text-center">
 
             <Card className="border-0 shadow-2xl bg-gradient-to-r from-blue-600 to-cyan-600">
               <CardContent className="p-8 md:p-12">
