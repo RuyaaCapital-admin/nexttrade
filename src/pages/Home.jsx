@@ -634,7 +634,7 @@ export default function Home({ language = "en" }) {
             <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
               {t.instruments.title}
             </h2>
-            <p className="text-xl text-gray-600}>{t.instruments.subtitle}</p>
+            <p className="text-xl text-gray-600">{t.instruments.subtitle}</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
