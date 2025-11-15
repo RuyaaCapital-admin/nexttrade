@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
@@ -26,8 +25,8 @@ import {
   Wallet,
   Bot,
   TrendingDown,
-  Activity
-} from "lucide-react";
+  Activity } from
+"lucide-react";
 import { motion } from "framer-motion";
 import AITradingChat from "../components/home/AITradingChat";
 
@@ -45,80 +44,80 @@ export default function Home({ language = "en" }) {
         cta2: "Try Demo Account"
       },
       stats: [
-        { value: "120+", label: "Trading Instruments" },
-        { value: "0.0", label: "Commission" },
-        { value: "24/7", label: "Support" },
-        { value: "<1s", label: "Execution" }],
+      { value: "120+", label: "Trading Instruments" },
+      { value: "0.0", label: "Commission" },
+      { value: "24/7", label: "Support" },
+      { value: "<1s", label: "Execution" }],
 
       exclusiveOffers: {
         title: "Exclusive Registration Bonuses",
         subtitle: "Get premium features when you open your account today",
         offers: [
-          {
-            icon: Gift,
-            title: "Welcome Bonus",
-            desc: "Up to $500 trading bonus on your first deposit",
-            badge: "Limited Time",
-            color: "from-orange-500 to-red-500"
-          },
-          {
-            icon: Bot,
-            title: "AI Trading Assistant",
-            desc: "Free access to our advanced AI-powered trading advisor",
-            badge: "Premium Feature",
-            color: "from-indigo-500 to-purple-500"
-          },
-          {
-            icon: Bell,
-            title: "Live Trade Signals",
-            desc: "Receive real-time trading signals from expert analysts",
-            badge: "Free Forever",
-            color: "from-green-500 to-emerald-500"
-          },
-          {
-            icon: Wallet,
-            title: "Instant Withdrawals",
-            desc: "Withdraw your profits instantly 24/7 with zero fees",
-            badge: "No Limits",
-            color: "from-blue-500 to-cyan-500"
-          }]
+        {
+          icon: Gift,
+          title: "Welcome Bonus",
+          desc: "Up to $500 trading bonus on your first deposit",
+          badge: "Limited Time",
+          color: "from-orange-500 to-red-500"
+        },
+        {
+          icon: Bot,
+          title: "AI Trading Assistant",
+          desc: "Free access to our advanced AI-powered trading advisor",
+          badge: "Premium Feature",
+          color: "from-indigo-500 to-purple-500"
+        },
+        {
+          icon: Bell,
+          title: "Live Trade Signals",
+          desc: "Receive real-time trading signals from expert analysts",
+          badge: "Free Forever",
+          color: "from-green-500 to-emerald-500"
+        },
+        {
+          icon: Wallet,
+          title: "Instant Withdrawals",
+          desc: "Withdraw your profits instantly 24/7 with zero fees",
+          badge: "No Limits",
+          color: "from-blue-500 to-cyan-500"
+        }]
 
       },
       features: [
-        { icon: Shield, title: "Trusted Broker", desc: "Regulated and secure trading environment" },
-        { icon: Zap, title: "Instant Execution", desc: "Lightning-fast order execution in milliseconds" },
-        { icon: DollarSign, title: "Zero Commission", desc: "No hidden fees or commission charges" },
-        { icon: Globe, title: "Islamic Accounts", desc: "Swap-free trading for Islamic finance" }],
+      { icon: Shield, title: "Trusted Broker", desc: "Regulated and secure trading environment" },
+      { icon: Zap, title: "Instant Execution", desc: "Lightning-fast order execution in milliseconds" },
+      { icon: DollarSign, title: "Zero Commission", desc: "No hidden fees or commission charges" },
+      { icon: Globe, title: "Islamic Accounts", desc: "Swap-free trading for Islamic finance" }],
 
       instruments: {
         title: "Trade Multiple Asset Classes",
         subtitle: "Diversify your portfolio with our wide range of instruments",
         items: [
-          { name: "Forex", pairs: "50+ Currency Pairs", icon: Globe },
-          { name: "Indices", pairs: "20+ Global Indices", icon: BarChart3 },
-          { name: "Commodities", pairs: "Gold, Silver, Oil", icon: Coins },
-          { name: "Crypto", pairs: "Top Cryptocurrencies", icon: TrendingUp }]
+        { name: "Forex", pairs: "50+ Currency Pairs", icon: Globe },
+        { name: "Indices", pairs: "20+ Global Indices", icon: BarChart3 },
+        { name: "Commodities", pairs: "Gold, Silver, Oil", icon: Coins },
+        { name: "Crypto", pairs: "Top Cryptocurrencies", icon: TrendingUp }]
 
       },
       whyChoose: {
         title: "Why Choose RFT Trade?",
         subtitle: "Built by traders, for traders",
         reasons: [
-          "Ultra-low spreads starting from 0.1 pips",
-          "Dedicated account manager for personalized support",
-          "Advanced MT5 platform with expert advisors",
-          "Instant deposits and withdrawals 24/7",
-          "Comprehensive educational resources",
-          "Multi-asset trading on one platform"]
+        "Ultra-low spreads starting from 0.1 pips",
+        "Dedicated account manager for personalized support",
+        "Advanced MT5 platform with expert advisors",
+        "Instant deposits and withdrawals 24/7",
+        "Comprehensive educational resources",
+        "Multi-asset trading on one platform"]
 
       },
       steps: {
         title: "Start Trading in 4 Easy Steps",
         items: [
-          { title: "Register", desc: "Create your account in minutes" },
-          { title: "Verify", desc: "Upload your documents" },
-          { title: "Fund", desc: "Deposit with multiple payment methods" },
-          { title: "Trade", desc: "Start trading 120+ instruments" }]
+        { title: "Register", desc: "Create your account in minutes" },
+        { title: "Verify", desc: "Upload your documents" },
+        { title: "Fund", desc: "Deposit with multiple payment methods" },
+        { title: "Trade", desc: "Start trading 120+ instruments" }]
 
       }
     },
@@ -130,80 +129,80 @@ export default function Home({ language = "en" }) {
         cta2: "تجربة حساب تجريبي"
       },
       stats: [
-        { value: "120+", label: "أداة تداول" },
-        { value: "0.0", label: "عمولة" },
-        { value: "24/7", label: "دعم فني" },
-        { value: "<1s", label: "تنفيذ فوري" }],
+      { value: "120+", label: "أداة تداول" },
+      { value: "0.0", label: "عمولة" },
+      { value: "24/7", label: "دعم فني" },
+      { value: "<1s", label: "تنفيذ فوري" }],
 
       exclusiveOffers: {
         title: "مكافآت التسجيل الحصرية",
         subtitle: "احصل على ميزات مميزة عند فتح حسابك اليوم",
         offers: [
-          {
-            icon: Gift,
-            title: "مكافأة الترحيب",
-            desc: "ما يصل إلى 500 دولار مكافأة تداول على إيداعك الأول",
-            badge: "عرض محدود",
-            color: "from-orange-500 to-red-500"
-          },
-          {
-            icon: Bot,
-            title: "مساعد التداول بالذكاء الاصطناعي",
-            desc: "وصول مجاني لمستشار التداول المتقدم بالذكاء الاصطناعي",
-            badge: "ميزة مميزة",
-            color: "from-indigo-500 to-purple-500"
-          },
-          {
-            icon: Bell,
-            title: "إشارات التداول المباشرة",
-            desc: "احصل على إشارات تداول فورية من محللين خبراء",
-            badge: "مجاني للأبد",
-            color: "from-green-500 to-emerald-500"
-          },
-          {
-            icon: Wallet,
-            title: "سحب فوري",
-            desc: "اسحب أرباحك فوراً على مدار الساعة بدون رسوم",
-            badge: "بدون حدود",
-            color: "from-blue-500 to-cyan-500"
-          }]
+        {
+          icon: Gift,
+          title: "مكافأة الترحيب",
+          desc: "ما يصل إلى 500 دولار مكافأة تداول على إيداعك الأول",
+          badge: "عرض محدود",
+          color: "from-orange-500 to-red-500"
+        },
+        {
+          icon: Bot,
+          title: "مساعد التداول بالذكاء الاصطناعي",
+          desc: "وصول مجاني لمستشار التداول المتقدم بالذكاء الاصطناعي",
+          badge: "ميزة مميزة",
+          color: "from-indigo-500 to-purple-500"
+        },
+        {
+          icon: Bell,
+          title: "إشارات التداول المباشرة",
+          desc: "احصل على إشارات تداول فورية من محللين خبراء",
+          badge: "مجاني للأبد",
+          color: "from-green-500 to-emerald-500"
+        },
+        {
+          icon: Wallet,
+          title: "سحب فوري",
+          desc: "اسحب أرباحك فوراً على مدار الساعة بدون رسوم",
+          badge: "بدون حدود",
+          color: "from-blue-500 to-cyan-500"
+        }]
 
       },
       features: [
-        { icon: Shield, title: "وسيط موثوق", desc: "بيئة تداول آمنة ومنظمة" },
-        { icon: Zap, title: "تنفيذ فوري", desc: "تنفيذ الأوامر بسرعة البرق في أجزاء من الثانية" },
-        { icon: DollarSign, title: "بدون عمولة", desc: "لا رسوم خفية أو عمولات" },
-        { icon: Globe, title: "حسابات إسلامية", desc: "تداول خالي من الفوائد الربوية" }],
+      { icon: Shield, title: "وسيط موثوق", desc: "بيئة تداول آمنة ومنظمة" },
+      { icon: Zap, title: "تنفيذ فوري", desc: "تنفيذ الأوامر بسرعة البرق في أجزاء من الثانية" },
+      { icon: DollarSign, title: "بدون عمولة", desc: "لا رسوم خفية أو عمولات" },
+      { icon: Globe, title: "حسابات إسلامية", desc: "تداول خالي من الفوائد الربوية" }],
 
       instruments: {
         title: "تداول فئات أصول متعددة",
         subtitle: "نوّع محفظتك مع مجموعة واسعة من الأدوات",
         items: [
-          { name: "العملات", pairs: "أكثر من 50 زوج عملة", icon: Globe },
-          { name: "المؤشرات", pairs: "أكثر من 20 مؤشر عالمي", icon: BarChart3 },
-          { name: "السلع", pairs: "ذهب، فضة، نفط", icon: Coins },
-          { name: "العملات الرقمية", pairs: "أفضل العملات الرقمية", icon: TrendingUp }]
+        { name: "العملات", pairs: "أكثر من 50 زوج عملة", icon: Globe },
+        { name: "المؤشرات", pairs: "أكثر من 20 مؤشر عالمي", icon: BarChart3 },
+        { name: "السلع", pairs: "ذهب، فضة، نفط", icon: Coins },
+        { name: "العملات الرقمية", pairs: "أفضل العملات الرقمية", icon: TrendingUp }]
 
       },
       whyChoose: {
         title: "لماذا RFT Trade؟",
         subtitle: "صُنع بواسطة متداولين، للمتداولين",
         reasons: [
-          "فروقات أسعار منخفضة جداً تبدأ من 0.1 نقطة",
-          "مدير حساب متخصص لدعم شخصي",
-          "منصة MT5 متقدمة مع المستشارين الخبراء",
-          "إيداعات وسحوبات فورية على مدار الساعة",
-          "موارد تعليمية شاملة",
-          "تداول متعدد الأصول على منصة واحدة"]
+        "فروقات أسعار منخفضة جداً تبدأ من 0.1 نقطة",
+        "مدير حساب متخصص لدعم شخصي",
+        "منصة MT5 متقدمة مع المستشارين الخبراء",
+        "إيداعات وسحوبات فورية على مدار الساعة",
+        "موارد تعليمية شاملة",
+        "تداول متعدد الأصول على منصة واحدة"]
 
       },
       steps: {
         title: "ابدأ التداول في 4 خطوات سهلة",
         items: [
-          { title: "التسجيل", desc: "أنشئ حسابك في دقائق" },
-          { title: "التحقق", desc: "قم برفع مستنداتك" },
-          { title: "التمويل", desc: "أودع بطرق دفع متعددة" },
-          { title: "التداول", desc: "ابدأ التداول بأكثر من 120 أداة" }]
+        { title: "التسجيل", desc: "أنشئ حسابك في دقائق" },
+        { title: "التحقق", desc: "قم برفع مستنداتك" },
+        { title: "التمويل", desc: "أودع بطرق دفع متعددة" },
+        { title: "التداول", desc: "ابدأ التداول بأكثر من 120 أداة" }]
 
       }
     }
@@ -212,30 +211,30 @@ export default function Home({ language = "en" }) {
   const t = content[language];
 
   const marketData = [
-    {
-      symbol: "XAU/USD",
-      name: language === "ar" ? "الذهب" : "Gold",
-      price: "2,654.32",
-      change: "+1.24%",
-      isPositive: true,
-      icon: Coins
-    },
-    {
-      symbol: "NAS100",
-      name: language === "ar" ? "ناسداك" : "NASDAQ",
-      price: "16,428.82",
-      change: "+0.87%",
-      isPositive: true,
-      icon: BarChart3
-    },
-    {
-      symbol: "EUR/USD",
-      name: language === "ar" ? "يورو/دولار" : "Euro",
-      price: "1.0865",
-      change: "-0.15%",
-      isPositive: false,
-      icon: DollarSign
-    }];
+  {
+    symbol: "XAU/USD",
+    name: language === "ar" ? "الذهب" : "Gold",
+    price: "2,654.32",
+    change: "+1.24%",
+    isPositive: true,
+    icon: Coins
+  },
+  {
+    symbol: "NAS100",
+    name: language === "ar" ? "ناسداك" : "NASDAQ",
+    price: "16,428.82",
+    change: "+0.87%",
+    isPositive: true,
+    icon: BarChart3
+  },
+  {
+    symbol: "EUR/USD",
+    name: language === "ar" ? "يورو/دولار" : "Euro",
+    price: "1.0865",
+    change: "-0.15%",
+    isPositive: false,
+    icon: DollarSign
+  }];
 
 
   return (
@@ -257,7 +256,7 @@ export default function Home({ language = "en" }) {
             backgroundImage: 'url(https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/1cdf8d782_c7d6b2f5-1e27-4f66-98bd-6e7460b52810.png)'
           }} />
 
-
+        
         {/* Gradient Overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-transparent to-cyan-600/20" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-950" />
@@ -277,15 +276,15 @@ export default function Home({ language = "en" }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2 }}>
-
+                
                 {t.hero.title.split(' ').map((word, idx) =>
-                  <motion.span
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 + idx * 0.1 }}
-                    className="inline-block mr-3">
-
+                <motion.span
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 + idx * 0.1 }}
+                  className="inline-block mr-3">
+                  
                     {word}
                   </motion.span>
                 )}
@@ -296,7 +295,7 @@ export default function Home({ language = "en" }) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.8 }}>
-
+                
                 {t.hero.subtitle}
               </motion.p>
 
@@ -306,7 +305,7 @@ export default function Home({ language = "en" }) {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 1 }}>
-
+                
                 <div className="text-sm text-gray-400 font-medium">
                   {language === "ar" ? "منصة التداول:" : "Trading Platform:"}
                 </div>
@@ -322,7 +321,7 @@ export default function Home({ language = "en" }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 1.2 }}>
-
+                
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white border-0 rounded-full px-8 py-6 text-lg shadow-2xl shadow-blue-500/50 transition-all duration-300 hover:shadow-blue-500/70"
@@ -349,12 +348,12 @@ export default function Home({ language = "en" }) {
               {/* Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {t.stats.map((stat, idx) =>
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: idx * 0.1 + 1.4 }}
-                    className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/10 hover:border-blue-500/50 transition-all duration-300">
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.1 + 1.4 }}
+                  className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/10 hover:border-blue-500/50 transition-all duration-300">
 
                     <div className="text-2xl md:text-3xl font-bold text-white mb-1">
                       {stat.value}
@@ -385,216 +384,46 @@ export default function Home({ language = "en" }) {
               <Sparkles className="w-4 h-4 mr-2 inline" />
               {language === "en" ? "Limited Time Offer" : "عرض لفترة محدودة"}
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+            <h2 className="bg-clip-text text-blue-600 mx-auto my-3 pt-8 pb-8 text-4xl font-bold rounded md:text-5xl from-blue-600 to-cyan-600">
               {t.exclusiveOffers.title}
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">{t.exclusiveOffers.subtitle}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Welcome Bonus */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0 }}
-              whileHover={{ y: -10 }}
-              className="relative">
-              <Card className="h-full border-0 shadow-xl bg-white hover:shadow-2xl transition-all duration-300">
-                <CardContent className="p-6">
-                  <Badge className="absolute top-4 right-4 bg-gradient-to-r from-orange-500 to-red-500 text-white border-0 text-xs px-3 py-1">
-                    {language === "en" ? "Limited Time" : "عرض محدود"}
-                  </Badge>
+            {t.exclusiveOffers.offers.map((offer, idx) => {
+              const Icon = offer.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  whileHover={{ y: -10 }}
+                  className="relative">
 
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mb-6 shadow-lg">
-                    <Gift className="w-8 h-8 text-white" />
-                  </div>
-
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">
-                    {language === "en" ? "Welcome Bonus" : "مكافأة الترحيب"}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed mb-6 text-sm">
-                    {language === "en"
-                      ? "Up to $500 trading bonus on your first deposit"
-                      : "ما يصل إلى 500 دولار مكافأة تداول على إيداعك الأول"}
-                  </p>
-
-                  {/* Visual Calculation */}
-                  <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-lg p-4 border border-orange-200/50">
-                    <div className="space-y-2 text-sm">
-                      <div className="flex justify-between items-center">
-                        <span className="text-gray-600">{language === "en" ? "Deposit" : "الإيداع"}</span>
-                        <span className="font-bold text-gray-900">$1,000</span>
-                      </div>
-                      <div className="flex justify-between items-center text-orange-600">
-                        <span>{language === "en" ? "Bonus" : "المكافأة"}</span>
-                        <span className="font-bold">+$500</span>
-                      </div>
-                      <div className="pt-2 border-t border-orange-200 flex justify-between items-center">
-                        <span className="font-semibold text-gray-900">{language === "en" ? "Total" : "المجموع"}</span>
-                        <span className="text-lg font-bold text-orange-600">$1,500</span>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* AI Assistant */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              whileHover={{ y: -10 }}
-              className="relative">
-              <Card className="h-full border-0 shadow-xl bg-white hover:shadow-2xl transition-all duration-300">
-                <CardContent className="p-6">
-                  <Badge className="absolute top-4 right-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white border-0 text-xs px-3 py-1">
-                    {language === "en" ? "Premium Feature" : "ميزة مميزة"}
-                  </Badge>
-
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center mb-6 shadow-lg">
-                    <Bot className="w-8 h-8 text-white" />
-                  </div>
-
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">
-                    {language === "en" ? "AI Trading Assistant" : "مساعد التداول بالذكاء الاصطناعي"}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed mb-6 text-sm">
-                    {language === "en"
-                      ? "Free access to our advanced AI-powered trading advisor"
-                      : "وصول مجاني لمستشار التداول المتقدم بالذكاء الاصطناعي"}
-                  </p>
-
-                  {/* Visual Features */}
-                  <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg p-4 border border-indigo-200/50">
-                    <div className="space-y-2.5">
-                      <div className="flex items-center gap-2 text-sm text-gray-700">
-                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
-                        <span>{language === "en" ? "Real-time analysis" : "تحليل فوري"}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-700">
-                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
-                        <span>{language === "en" ? "Trade suggestions" : "اقتراحات تداول"}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-700">
-                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
-                        <span>{language === "en" ? "Risk alerts" : "تنبيهات مخاطر"}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-700">
-                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
-                        <span>{language === "en" ? "24/7 support" : "دعم 24/7"}</span>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Live Signals */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              whileHover={{ y: -10 }}
-              className="relative">
-              <Card className="h-full border-0 shadow-xl bg-white hover:shadow-2xl transition-all duration-300">
-                <CardContent className="p-6">
-                  <Badge className="absolute top-4 right-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white border-0 text-xs px-3 py-1">
-                    {language === "en" ? "Free Forever" : "مجاني للأبد"}
-                  </Badge>
-
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center mb-6 shadow-lg">
-                    <Bell className="w-8 h-8 text-white" />
-                  </div>
-
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">
-                    {language === "en" ? "Live Trade Signals" : "إشارات التداول المباشرة"}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed mb-6 text-sm">
-                    {language === "en"
-                      ? "Receive real-time trading signals from expert analysts"
-                      : "احصل على إشارات تداول فورية من محللين خبراء"}
-                  </p>
-
-                  {/* Visual Signal Example */}
-                  <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-4 border border-green-200/50">
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-2">
-                        <LineChart className="w-4 h-4 text-green-600" />
-                        <span className="text-sm font-bold text-gray-900">EUR/USD</span>
-                      </div>
-                      <Badge className="bg-green-500 text-white border-0 text-xs px-2 py-0.5">
-                        {language === "en" ? "BUY" : "شراء"}
+                  <Card className="h-full border-0 shadow-xl bg-white hover:shadow-2xl transition-all duration-300">
+                    <CardContent className="p-6">
+                      <Badge className={`absolute top-4 right-4 bg-gradient-to-r ${offer.color} text-white border-0 text-xs px-3 py-1`}>
+                        {offer.badge}
                       </Badge>
-                    </div>
-                    <div className="grid grid-cols-2 gap-2 text-xs">
-                      <div className="bg-white/60 rounded p-2">
-                        <div className="text-gray-600">{language === "en" ? "Entry" : "دخول"}</div>
-                        <div className="font-bold text-gray-900">1.0865</div>
-                      </div>
-                      <div className="bg-white/60 rounded p-2">
-                        <div className="text-gray-600">{language === "en" ? "Target" : "هدف"}</div>
-                        <div className="font-bold text-green-600">1.0920</div>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
 
-            {/* Instant Withdrawals */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              whileHover={{ y: -10 }}
-              className="relative">
-              <Card className="h-full border-0 shadow-xl bg-white hover:shadow-2xl transition-all duration-300">
-                <CardContent className="p-6">
-                  <Badge className="absolute top-4 right-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white border-0 text-xs px-3 py-1">
-                    {language === "en" ? "No Limits" : "بدون حدود"}
-                  </Badge>
-
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-6 shadow-lg">
-                    <Wallet className="w-8 h-8 text-white" />
-                  </div>
-
-                  <h3 className="text-xl font-bold mb-3 text-gray-900">
-                    {language === "en" ? "Instant Withdrawals" : "سحب فوري"}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed mb-6 text-sm">
-                    {language === "en"
-                      ? "Withdraw your profits instantly 24/7 with zero fees"
-                      : "اسحب أرباحك فوراً على مدار الساعة بدون رسوم"}
-                  </p>
-
-                  {/* Visual Withdrawal Info */}
-                  <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg p-4 border border-blue-200/50">
-                    <div className="space-y-2.5">
-                      <div className="flex justify-between items-center text-sm">
-                        <span className="text-gray-600">{language === "en" ? "Processing" : "المعالجة"}</span>
-                        <span className="font-bold text-blue-600">{language === "en" ? "Instant" : "فوري"}</span>
+                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${offer.color} flex items-center justify-center mb-6 shadow-lg`}>
+                        <Icon className="w-8 h-8 text-white" />
                       </div>
-                      <div className="flex justify-between items-center text-sm">
-                        <span className="text-gray-600">{language === "en" ? "Fees" : "الرسوم"}</span>
-                        <span className="font-bold text-green-600">$0.00</span>
-                      </div>
-                      <div className="flex justify-between items-center text-sm pt-2 border-t border-blue-200">
-                        <span className="text-gray-600">{language === "en" ? "Availability" : "التوفر"}</span>
-                        <div className="flex items-center gap-1">
-                          <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                          <span className="font-bold text-gray-900">24/7</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
+
+                      <h3 className="text-xl font-bold mb-3 text-gray-900">
+                        {offer.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {offer.desc}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>);
+
+            })}
           </div>
 
           {/* CTA Banner */}
@@ -608,13 +437,13 @@ export default function Home({ language = "en" }) {
               <CardContent className="p-8 md:p-12">
                 <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   {language === "en" ?
-                    "Ready to Claim Your Bonuses?" :
-                    "هل أنت مستعد للحصول على مكافآتك؟"}
+                  "Ready to Claim Your Bonuses?" :
+                  "هل أنت مستعد للحصول على مكافآتك؟"}
                 </h3>
                 <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
                   {language === "en" ?
-                    "Open your account now and unlock all premium features instantly!" :
-                    "افتح حسابك الآن واحصل على جميع الميزات المميزة فوراً!"}
+                  "Open your account now and unlock all premium features instantly!" :
+                  "افتح حسابك الآن واحصل على جميع الميزات المميزة فوراً!"}
                 </p>
                 <Button
                   size="lg"
@@ -682,23 +511,23 @@ export default function Home({ language = "en" }) {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="relative">
-
+              
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/ac624df0c_f51701e3-dbf6-4070-88f9-c4844c0a676e.png"
                   alt="XAU/USD Trading"
                   className="w-full h-auto" />
-
+                
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
-
+                
                 {/* Floating Badge */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
                   className="absolute bottom-8 left-8 right-8">
-
+                  
                   <div className="bg-white/90 backdrop-blur-md rounded-2xl p-6 shadow-xl">
                     <div className="flex items-center justify-between">
                       <div>
@@ -740,9 +569,9 @@ export default function Home({ language = "en" }) {
                     onHoverStart={() => setHoveredCard(idx)}
                     onHoverEnd={() => setHoveredCard(null)}
                     style={{ transformStyle: 'preserve-3d' }}>
-
+                    
                     <Card className={`h-full bg-white border-0 shadow-xl transition-all duration-300 ${
-                      hoveredCard === idx ? 'shadow-2xl' : ''}`
+                    hoveredCard === idx ? 'shadow-2xl' : ''}`
                     }>
                       <CardContent className="p-6 relative">
                         {/* Animated Gradient Background */}
@@ -750,8 +579,8 @@ export default function Home({ language = "en" }) {
                           className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-xl opacity-0"
                           animate={{ opacity: hoveredCard === idx ? 1 : 0 }}
                           transition={{ duration: 0.3 }} />
-
-
+                        
+                        
                         <div className="relative z-10">
                           <motion.div
                             animate={{
@@ -760,17 +589,17 @@ export default function Home({ language = "en" }) {
                             }}
                             transition={{ duration: 0.6 }}
                             className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center mb-4 shadow-lg">
-
+                            
                             <Icon className="w-8 h-8 text-white" />
                           </motion.div>
-
+                          
                           <h3 className="text-xl font-bold mb-2 text-gray-900">
                             {instrument.name}
                           </h3>
                           <p className="text-gray-600 text-sm">
                             {instrument.pairs}
                           </p>
-
+                          
                           {/* Hover Details */}
                           <motion.div
                             initial={{ opacity: 0, y: 10 }}
@@ -780,7 +609,7 @@ export default function Home({ language = "en" }) {
                             }}
                             transition={{ duration: 0.3 }}
                             className="mt-4 pt-4 border-t border-gray-200">
-
+                            
                             <div className="flex items-center justify-between text-xs">
                               <span className="text-gray-600">
                                 {language === "ar" ? "السبريد من" : "Spread from"}
@@ -815,13 +644,13 @@ export default function Home({ language = "en" }) {
 
               <div className="space-y-4">
                 {t.whyChoose.reasons.map((reason, idx) =>
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                    className="flex items-start gap-3">
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="flex items-start gap-3">
 
                     <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
@@ -860,7 +689,7 @@ export default function Home({ language = "en" }) {
                         <span className="text-xs text-green-500 font-medium">LIVE</span>
                       </div>
                     </div>
-
+                    
                     <div className="space-y-4">
                       {marketData.map((item, idx) => {
                         const Icon = item.icon;
@@ -872,7 +701,7 @@ export default function Home({ language = "en" }) {
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 + idx * 0.1 }}
                             className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-4 border border-slate-200 hover:border-blue-500/50 transition-all duration-300">
-
+                            
                             <div className="flex items-center justify-between mb-2">
                               <div className="flex items-center gap-3">
                                 <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center">
@@ -886,7 +715,7 @@ export default function Home({ language = "en" }) {
                               <div className="text-right">
                                 <div className="text-gray-900 font-bold text-lg">{item.price}</div>
                                 <div className={`text-sm font-medium flex items-center gap-1 ${
-                                  item.isPositive ? 'text-green-500' : 'text-red-500'}`
+                                item.isPositive ? 'text-green-500' : 'text-red-500'}`
                                 }>
                                   {item.isPositive ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
                                   {item.change}
@@ -931,13 +760,13 @@ export default function Home({ language = "en" }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {t.steps.items.map((step, idx) =>
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.15 }}
-                className="relative">
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.15 }}
+              className="relative">
 
                 <div className="text-center">
                   <div className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/30 flex items-center justify-center mx-auto mb-6 text-3xl font-bold">
@@ -947,8 +776,8 @@ export default function Home({ language = "en" }) {
                   <p className="text-gray-300">{step.desc}</p>
                 </div>
                 {idx < t.steps.items.length - 1 &&
-                  <div className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-white/20" />
-                }
+              <div className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-white/20" />
+              }
               </motion.div>
             )}
           </div>
