@@ -19,6 +19,13 @@ import {
   BarChart3,
   Coins,
   Brain,
+  Sparkles,
+  Gift,
+  Bell,
+  Wallet,
+  Bot,
+  TrendingDown,
+  Clock,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -39,8 +46,42 @@ export default function Home({ language = "en" }) {
         { value: "120+", label: "Trading Instruments" },
         { value: "0.0", label: "Commission" },
         { value: "24/7", label: "Support" },
-        { value: "Fast", label: "Execution" },
+        { value: "<1s", label: "Execution" },
       ],
+      exclusiveOffers: {
+        title: "Exclusive Registration Bonuses",
+        subtitle: "Get premium features when you open your account today",
+        offers: [
+          {
+            icon: Gift,
+            title: "Welcome Bonus",
+            desc: "Up to $500 trading bonus on your first deposit",
+            badge: "Limited Time",
+            color: "from-orange-500 to-red-500",
+          },
+          {
+            icon: Bot,
+            title: "AI Trading Assistant",
+            desc: "Free access to our advanced AI-powered trading advisor",
+            badge: "Premium Feature",
+            color: "from-indigo-500 to-purple-500",
+          },
+          {
+            icon: Bell,
+            title: "Live Trade Signals",
+            desc: "Receive real-time trading signals from expert analysts",
+            badge: "Free Forever",
+            color: "from-green-500 to-emerald-500",
+          },
+          {
+            icon: Wallet,
+            title: "Instant Withdrawals",
+            desc: "Withdraw your profits instantly 24/7 with zero fees",
+            badge: "No Limits",
+            color: "from-blue-500 to-cyan-500",
+          },
+        ],
+      },
       features: [
         { icon: Shield, title: "Trusted Broker", desc: "Regulated and secure trading environment" },
         { icon: Zap, title: "Instant Execution", desc: "Lightning-fast order execution in milliseconds" },
@@ -64,7 +105,7 @@ export default function Home({ language = "en" }) {
           "Ultra-low spreads starting from 0.1 pips",
           "Dedicated account manager for personalized support",
           "Advanced MT5 platform with expert advisors",
-          "Instant deposits and withdrawals",
+          "Instant deposits and withdrawals 24/7",
           "Comprehensive educational resources",
           "Multi-asset trading on one platform",
         ],
@@ -91,8 +132,42 @@ export default function Home({ language = "en" }) {
         { value: "120+", label: "أداة تداول" },
         { value: "0.0", label: "عمولة" },
         { value: "24/7", label: "دعم فني" },
-        { value: "سريع", label: "تنفيذ فوري" },
+        { value: "<1s", label: "تنفيذ فوري" },
       ],
+      exclusiveOffers: {
+        title: "مكافآت التسجيل الحصرية",
+        subtitle: "احصل على ميزات مميزة عند فتح حسابك اليوم",
+        offers: [
+          {
+            icon: Gift,
+            title: "مكافأة الترحيب",
+            desc: "ما يصل إلى 500 دولار مكافأة تداول على إيداعك الأول",
+            badge: "عرض محدود",
+            color: "from-orange-500 to-red-500",
+          },
+          {
+            icon: Bot,
+            title: "مساعد التداول بالذكاء الاصطناعي",
+            desc: "وصول مجاني لمستشار التداول المتقدم بالذكاء الاصطناعي",
+            badge: "ميزة مميزة",
+            color: "from-indigo-500 to-purple-500",
+          },
+          {
+            icon: Bell,
+            title: "إشارات التداول المباشرة",
+            desc: "احصل على إشارات تداول فورية من محللين خبراء",
+            badge: "مجاني للأبد",
+            color: "from-green-500 to-emerald-500",
+          },
+          {
+            icon: Wallet,
+            title: "سحب فوري",
+            desc: "اسحب أرباحك فوراً على مدار الساعة بدون رسوم",
+            badge: "بدون حدود",
+            color: "from-blue-500 to-cyan-500",
+          },
+        ],
+      },
       features: [
         { icon: Shield, title: "وسيط موثوق", desc: "بيئة تداول آمنة ومنظمة" },
         { icon: Zap, title: "تنفيذ فوري", desc: "تنفيذ الأوامر بسرعة البرق في أجزاء من الثانية" },
@@ -116,7 +191,7 @@ export default function Home({ language = "en" }) {
           "فروقات أسعار منخفضة جداً تبدأ من 0.1 نقطة",
           "مدير حساب متخصص لدعم شخصي",
           "منصة MT5 متقدمة مع المستشارين الخبراء",
-          "إيداعات وسحوبات فورية",
+          "إيداعات وسحوبات فورية على مدار الساعة",
           "موارد تعليمية شاملة",
           "تداول متعدد الأصول على منصة واحدة",
         ],
@@ -137,74 +212,221 @@ export default function Home({ language = "en" }) {
 
   return (
     <div className="overflow-hidden">
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900">
-        {/* Animated Background */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-96 h-96 bg-indigo-500/30 rounded-full blur-3xl -top-20 -left-20 animate-pulse" />
-          <div className="absolute w-96 h-96 bg-purple-500/30 rounded-full blur-3xl -bottom-20 -right-20 animate-pulse delay-1000" />
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjAuNSIgb3BhY2l0eT0iMC4xIi8+PC9nPjwvc3ZnPg==')] opacity-20" />
+      {/* Hero Section with Background Image */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: 'url(https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/1cdf8d782_c7d6b2f5-1e27-4f66-98bd-6e7460b52810.png)',
+            }}
+          />
+          {/* Professional Gradient Overlay for Readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/85 to-slate-900/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/40" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <Badge className="mb-6 bg-white/10 text-white border-white/20 backdrop-blur-sm px-4 py-2 text-sm">
-              <Star className="w-4 h-4 mr-2 inline" />
-              {t.hero.badge}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <Badge className="mb-6 bg-white/10 text-white border-white/20 backdrop-blur-sm px-4 py-2 text-sm">
+                <Star className="w-4 h-4 mr-2 inline" />
+                {t.hero.badge}
+              </Badge>
+
+              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                {t.hero.title}
+              </h1>
+
+              <p className="text-xl md:text-2xl text-gray-200 mb-10">
+                {t.hero.subtitle}
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white border-0 rounded-full px-8 py-6 text-lg shadow-2xl hover:shadow-indigo-500/50 transition-all duration-300 hover:scale-105"
+                  asChild
+                >
+                  <Link to={createPageUrl("Contact")}>
+                    <Sparkles className="w-5 h-5 mr-2" />
+                    {t.hero.cta1}
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Link>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="bg-white/10 hover:bg-white/20 text-white border-white/30 backdrop-blur-sm rounded-full px-8 py-6 text-lg"
+                  asChild
+                >
+                  <Link to={createPageUrl("Contact")}>
+                    {t.hero.cta2}
+                  </Link>
+                </Button>
+              </div>
+
+              {/* Stats */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {t.stats.map((stat, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.1 + 0.5 }}
+                    className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20"
+                  >
+                    <div className="text-2xl md:text-3xl font-bold text-white mb-1">
+                      {stat.value}
+                    </div>
+                    <div className="text-xs text-gray-300">{stat.label}</div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Right Content - Floating Cards */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="hidden lg:block"
+            >
+              <div className="relative">
+                {/* Animated Floating Card 1 */}
+                <motion.div
+                  animate={{ y: [0, -20, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute top-0 right-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 w-64"
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center">
+                      <TrendingUp className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <div className="text-white font-bold">EUR/USD</div>
+                      <div className="text-xs text-gray-300">Active Trade</div>
+                    </div>
+                  </div>
+                  <div className="text-2xl font-bold text-green-400 mb-1">+$1,250.50</div>
+                  <div className="text-sm text-gray-300">+2.45% Today</div>
+                </motion.div>
+
+                {/* Animated Floating Card 2 */}
+                <motion.div
+                  animate={{ y: [0, 20, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  className="absolute top-48 left-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 w-64"
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center">
+                      <LineChart className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <div className="text-white font-bold">Gold</div>
+                      <div className="text-xs text-gray-300">Trending Up</div>
+                    </div>
+                  </div>
+                  <div className="text-2xl font-bold text-blue-400 mb-1">$2,050.75</div>
+                  <div className="text-sm text-gray-300">+1.2% This Week</div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Exclusive Registration Bonuses */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-white to-indigo-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-gradient-to-r from-orange-500 to-red-500 text-white border-0 px-4 py-2">
+              <Sparkles className="w-4 h-4 mr-2 inline" />
+              {language === "en" ? "Limited Time Offer" : "عرض لفترة محدودة"}
             </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              {t.exclusiveOffers.title}
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">{t.exclusiveOffers.subtitle}</p>
+          </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-              {t.hero.title}
-            </h1>
-
-            <p className="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto">
-              {t.hero.subtitle}
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white border-0 rounded-full px-8 py-6 text-lg shadow-2xl hover:shadow-indigo-500/50 transition-all duration-300"
-                asChild
-              >
-                <Link to={createPageUrl("Contact")}>
-                  {t.hero.cta1}
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="bg-white/10 hover:bg-white/20 text-white border-white/30 backdrop-blur-sm rounded-full px-8 py-6 text-lg"
-                asChild
-              >
-                <Link to={createPageUrl("Contact")}>
-                  {t.hero.cta2}
-                </Link>
-              </Button>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-              {t.stats.map((stat, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {t.exclusiveOffers.offers.map((offer, idx) => {
+              const Icon = offer.icon;
+              return (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.1 + 0.5 }}
-                  className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  whileHover={{ y: -10 }}
+                  className="relative group"
                 >
-                  <div className="text-3xl md:text-4xl font-bold text-white mb-2">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-gray-300">{stat.label}</div>
+                  <Card className="h-full border-0 shadow-xl overflow-hidden bg-white hover:shadow-2xl transition-all duration-300">
+                    {/* Gradient Border Effect */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${offer.color} opacity-0 group-hover:opacity-10 transition-opacity`} />
+                    
+                    <CardContent className="p-6 relative">
+                      <Badge className={`absolute top-4 right-4 bg-gradient-to-r ${offer.color} text-white border-0 text-xs px-3 py-1`}>
+                        {offer.badge}
+                      </Badge>
+
+                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${offer.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
+                        <Icon className="w-8 h-8 text-white" />
+                      </div>
+
+                      <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-indigo-600 transition-colors">
+                        {offer.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {offer.desc}
+                      </p>
+                    </CardContent>
+                  </Card>
                 </motion.div>
-              ))}
-            </div>
+              );
+            })}
+          </div>
+
+          {/* CTA Banner */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-12 text-center"
+          >
+            <Card className="border-0 shadow-2xl bg-gradient-to-r from-indigo-600 to-purple-600 overflow-hidden">
+              <CardContent className="p-8 md:p-12">
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                  {language === "en" 
+                    ? "Ready to Claim Your Bonuses?" 
+                    : "هل أنت مستعد للحصول على مكافآتك؟"}
+                </h3>
+                <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                  {language === "en"
+                    ? "Open your account now and unlock all premium features instantly!"
+                    : "افتح حسابك الآن واحصل على جميع الميزات المميزة فوراً!"}
+                </p>
+                <Button
+                  size="lg"
+                  className="bg-white text-indigo-600 hover:bg-gray-100 rounded-full px-10 py-6 text-lg font-semibold shadow-xl hover:scale-105 transition-all"
+                  asChild
+                >
+                  <Link to={createPageUrl("Contact")}>
+                    <Gift className="w-5 h-5 mr-2" />
+                    {language === "en" ? "Claim Your Bonuses Now" : "احصل على مكافآتك الآن"}
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
           </motion.div>
         </div>
       </section>
@@ -376,7 +598,7 @@ export default function Home({ language = "en" }) {
           <div className="text-center mt-12">
             <Button
               size="lg"
-              className="bg-white text-indigo-600 hover:bg-gray-100 rounded-full px-8 py-6 text-lg font-semibold shadow-xl"
+              className="bg-white text-indigo-600 hover:bg-gray-100 rounded-full px-8 py-6 text-lg font-semibold shadow-xl hover:scale-105 transition-all"
               asChild
             >
               <Link to={createPageUrl("Contact")}>
