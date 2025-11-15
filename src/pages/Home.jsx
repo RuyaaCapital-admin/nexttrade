@@ -209,23 +209,22 @@ export default function Home({ language = "en" }) {
   const t = content[language];
 
   return (
-    <div className="overflow-hidden">
-      {/* Hero Section with Background Image - FIXED */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden isolate">
-        {/* Background Image with Overlay - Completely Non-Interactive */}
-        <div className="absolute inset-0 pointer-events-none select-none" style={{ zIndex: -1 }}>
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: 'url(https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/1cdf8d782_c7d6b2f5-1e27-4f66-98bd-6e7460b52810.png)',
-            }}
-          />
-          {/* Professional Gradient Overlay for Readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/85 to-slate-900/70" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/40" />
-        </div>
+    <div className="overflow-hidden bg-white">
+      {/* Hero Section - COMPLETELY ISOLATED */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-slate-900">
+        {/* Background Image Layer */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+          style={{
+            backgroundImage: 'url(https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/1cdf8d782_c7d6b2f5-1e27-4f66-98bd-6e7460b52810.png)',
+          }}
+        />
+        
+        {/* Dark Overlay for Readability */}
+        <div className="absolute inset-0 bg-slate-900/60" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-10">
+        {/* Content Layer */}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <motion.div
@@ -249,8 +248,7 @@ export default function Home({ language = "en" }) {
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white border-0 rounded-full px-8 py-6 text-lg shadow-2xl transition-all duration-300"
-                  style={{ boxShadow: '0 10px 40px rgba(79, 70, 229, 0.3)' }}
+                  className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white border-0 rounded-full px-8 py-6 text-lg shadow-2xl transition-all duration-300"
                   asChild
                 >
                   <Link to={createPageUrl("Contact")}>
@@ -262,7 +260,7 @@ export default function Home({ language = "en" }) {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="bg-white/10 text-white border-white/30 backdrop-blur-sm rounded-full px-8 py-6 text-lg transition-all duration-300"
+                  className="bg-white/10 hover:bg-white/20 text-white border-white/30 backdrop-blur-sm rounded-full px-8 py-6 text-lg transition-all duration-300"
                   asChild
                 >
                   <Link to={createPageUrl("Contact")}>
@@ -321,7 +319,7 @@ export default function Home({ language = "en" }) {
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-gray-300">BTC/USD</span>
-                        <span className="text-purple-400 font-bold">+3.15%</span>
+                        <span className="text-cyan-400 font-bold">+3.15%</span>
                       </div>
                     </div>
 
@@ -337,16 +335,15 @@ export default function Home({ language = "en" }) {
         </div>
       </section>
 
-      {/* Rest of the sections remain unchanged */}
       {/* Exclusive Registration Bonuses */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-white to-indigo-50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-white to-blue-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-gradient-to-r from-orange-500 to-red-500 text-white border-0 px-4 py-2">
               <Sparkles className="w-4 h-4 mr-2 inline" />
               {language === "en" ? "Limited Time Offer" : "عرض لفترة محدودة"}
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
               {t.exclusiveOffers.title}
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">{t.exclusiveOffers.subtitle}</p>
@@ -363,22 +360,19 @@ export default function Home({ language = "en" }) {
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
                   whileHover={{ y: -10 }}
-                  className="relative group"
+                  className="relative"
                 >
-                  <Card className="h-full border-0 shadow-xl overflow-hidden bg-white hover:shadow-2xl transition-all duration-300">
-                    {/* Gradient Border Effect */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${offer.color} opacity-0 group-hover:opacity-10 transition-opacity`} />
-                    
-                    <CardContent className="p-6 relative">
+                  <Card className="h-full border-0 shadow-xl bg-white hover:shadow-2xl transition-all duration-300">
+                    <CardContent className="p-6">
                       <Badge className={`absolute top-4 right-4 bg-gradient-to-r ${offer.color} text-white border-0 text-xs px-3 py-1`}>
                         {offer.badge}
                       </Badge>
 
-                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${offer.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
+                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${offer.color} flex items-center justify-center mb-6 shadow-lg`}>
                         <Icon className="w-8 h-8 text-white" />
                       </div>
 
-                      <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-indigo-600 transition-colors">
+                      <h3 className="text-xl font-bold mb-3 text-gray-900">
                         {offer.title}
                       </h3>
                       <p className="text-gray-600 leading-relaxed">
@@ -398,7 +392,7 @@ export default function Home({ language = "en" }) {
             viewport={{ once: true }}
             className="mt-12 text-center"
           >
-            <Card className="border-0 shadow-2xl bg-gradient-to-r from-indigo-600 to-purple-600 overflow-hidden">
+            <Card className="border-0 shadow-2xl bg-gradient-to-r from-blue-600 to-cyan-600">
               <CardContent className="p-8 md:p-12">
                 <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   {language === "en" 
@@ -412,7 +406,7 @@ export default function Home({ language = "en" }) {
                 </p>
                 <Button
                   size="lg"
-                  className="bg-white text-indigo-600 hover:bg-gray-100 rounded-full px-10 py-6 text-lg font-semibold shadow-xl hover:scale-105 transition-all"
+                  className="bg-white text-blue-600 hover:bg-gray-100 rounded-full px-10 py-6 text-lg font-semibold shadow-xl hover:scale-105 transition-all"
                   asChild
                 >
                   <Link to={createPageUrl("Contact")}>
@@ -428,7 +422,7 @@ export default function Home({ language = "en" }) {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {t.features.map((feature, idx) => {
@@ -441,9 +435,9 @@ export default function Home({ language = "en" }) {
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
                 >
-                  <Card className="h-full hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 bg-white">
+                  <Card className="h-full hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 bg-white shadow-lg">
                     <CardContent className="p-6">
-                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center mb-4 shadow-lg">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center mb-4 shadow-lg">
                         <Icon className="w-7 h-7 text-white" />
                       </div>
                       <h3 className="text-xl font-bold mb-2 text-gray-900">
@@ -460,10 +454,10 @@ export default function Home({ language = "en" }) {
       </section>
 
       {/* Trading Instruments */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-indigo-50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
               {t.instruments.title}
             </h2>
             <p className="text-xl text-gray-600">{t.instruments.subtitle}</p>
@@ -480,16 +474,14 @@ export default function Home({ language = "en" }) {
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
                   whileHover={{ scale: 1.05 }}
-                  className="cursor-pointer"
                 >
-                  <Card className="h-full bg-white border-0 shadow-xl overflow-hidden group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <CardContent className="p-8 relative z-10">
-                      <Icon className="w-12 h-12 mb-4 text-indigo-600 group-hover:text-white transition-colors" />
-                      <h3 className="text-2xl font-bold mb-2 text-gray-900 group-hover:text-white transition-colors">
+                  <Card className="h-full bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <CardContent className="p-8">
+                      <Icon className="w-12 h-12 mb-4 text-blue-600" />
+                      <h3 className="text-2xl font-bold mb-2 text-gray-900">
                         {instrument.name}
                       </h3>
-                      <p className="text-gray-600 group-hover:text-white/90 transition-colors">
+                      <p className="text-gray-600">
                         {instrument.pairs}
                       </p>
                     </CardContent>
@@ -502,7 +494,7 @@ export default function Home({ language = "en" }) {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -540,10 +532,10 @@ export default function Home({ language = "en" }) {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="aspect-square rounded-3xl bg-gradient-to-br from-indigo-600 to-purple-600 p-1">
+              <div className="aspect-square rounded-3xl bg-gradient-to-br from-blue-600 to-cyan-600 p-1">
                 <div className="w-full h-full rounded-3xl bg-white p-8 flex items-center justify-center">
                   <div className="text-center">
-                    <Brain className="w-24 h-24 mx-auto mb-6 text-indigo-600" />
+                    <Brain className="w-24 h-24 mx-auto mb-6 text-blue-600" />
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">
                       {language === "en" ? "Smart Trading Platform" : "منصة تداول ذكية"}
                     </h3>
@@ -561,7 +553,7 @@ export default function Home({ language = "en" }) {
       </section>
 
       {/* Getting Started Steps */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-indigo-900 to-purple-900 text-white">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-800 to-slate-900 text-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.steps.title}</h2>
@@ -594,7 +586,7 @@ export default function Home({ language = "en" }) {
           <div className="text-center mt-12">
             <Button
               size="lg"
-              className="bg-white text-indigo-600 hover:bg-gray-100 rounded-full px-8 py-6 text-lg font-semibold shadow-xl hover:scale-105 transition-all"
+              className="bg-white text-slate-900 hover:bg-gray-100 rounded-full px-8 py-6 text-lg font-semibold shadow-xl hover:scale-105 transition-all"
               asChild
             >
               <Link to={createPageUrl("Contact")}>
