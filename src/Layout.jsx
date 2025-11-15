@@ -28,7 +28,7 @@ export default function Layout({ children, currentPageName }) {
   useEffect(() => {
     const script = document.createElement('script');
     script.type = 'text/javascript';
-    script.onload = function() {
+    script.onload = function () {
       if (window.voiceflow && window.voiceflow.chat) {
         window.voiceflow.chat.load({
           verify: { projectID: '6918692fdeba3b67d318f103' },
@@ -282,7 +282,7 @@ export default function Layout({ children, currentPageName }) {
               <ul className="space-y-3 text-sm text-gray-400">
                 <li className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
-                  <span className="">+963 940 632 191</span>
+                  <span className="">963940632191+</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
