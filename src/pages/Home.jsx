@@ -32,6 +32,7 @@ import AITradingChat from "../components/home/AITradingChat";
 
 export default function Home({ language = "en" }) {
   const [activeInstrument, setActiveInstrument] = useState(0);
+  const [hoveredCard, setHoveredCard] = useState(null);
   const isRTL = language === "ar";
 
   const content = {
@@ -493,8 +494,8 @@ export default function Home({ language = "en" }) {
         </div>
       </section>
 
-      {/* Trading Instruments */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50">
+      {/* Trading Instruments - Enhanced with XAU/USD Image */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
@@ -503,32 +504,126 @@ export default function Home({ language = "en" }) {
             <p className="text-xl text-gray-600">{t.instruments.subtitle}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {t.instruments.items.map((instrument, idx) => {
-              const Icon = instrument.icon;
-              return (
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - XAU/USD Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/ac624df0c_f51701e3-dbf6-4070-88f9-c4844c0a676e.png"
+                  alt="XAU/USD Trading"
+                  className="w-full h-auto"
+                />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+                
+                {/* Floating Badge */}
                 <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  whileHover={{ scale: 1.05 }}>
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="absolute bottom-8 left-8 right-8"
+                >
+                  <div className="bg-white/90 backdrop-blur-md rounded-2xl p-6 shadow-xl">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="text-3xl font-bold text-gray-900">XAU/USD</div>
+                        <div className="text-sm text-gray-600 mt-1">
+                          {language === "ar" ? "تداول الذهب مع فروقات منخفضة" : "Trade Gold with Low Spreads"}
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-2xl font-bold text-green-500">$2,654.32</div>
+                        <div className="text-sm text-green-500 flex items-center gap-1 justify-end">
+                          <TrendingUp className="w-4 h-4" />
+                          +1.24%
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
 
-                  <Card className="h-full bg-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
-                    <CardContent className="p-8">
-                      <Icon className="w-12 h-12 mb-4 text-blue-600" />
-                      <h3 className="text-2xl font-bold mb-2 text-gray-900">
-                        {instrument.name}
-                      </h3>
-                      <p className="text-gray-600">
-                        {instrument.pairs}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </motion.div>);
-
-            })}
+            {/* Right Side - 3D Interactive Cards */}
+            <div className="grid grid-cols-2 gap-4">
+              {t.instruments.items.map((instrument, idx) => {
+                const Icon = instrument.icon;
+                return (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, scale: 0.8, rotateY: -15 }}
+                    whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1, duration: 0.6 }}
+                    whileHover={{ 
+                      scale: 1.05,
+                      rotateY: 5,
+                      z: 50,
+                      transition: { duration: 0.3 }
+                    }}
+                    onHoverStart={() => setHoveredCard(idx)}
+                    onHoverEnd={() => setHoveredCard(null)}
+                    style={{ transformStyle: 'preserve-3d' }}
+                  >
+                    <Card className={`h-full bg-white border-0 shadow-xl transition-all duration-300 ${
+                      hoveredCard === idx ? 'shadow-2xl' : ''
+                    }`}>
+                      <CardContent className="p-6 relative">
+                        {/* Animated Gradient Background */}
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-xl opacity-0"
+                          animate={{ opacity: hoveredCard === idx ? 1 : 0 }}
+                          transition={{ duration: 0.3 }}
+                        />
+                        
+                        <div className="relative z-10">
+                          <motion.div
+                            animate={{ 
+                              rotate: hoveredCard === idx ? 360 : 0,
+                              scale: hoveredCard === idx ? 1.1 : 1
+                            }}
+                            transition={{ duration: 0.6 }}
+                            className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center mb-4 shadow-lg"
+                          >
+                            <Icon className="w-8 h-8 text-white" />
+                          </motion.div>
+                          
+                          <h3 className="text-xl font-bold mb-2 text-gray-900">
+                            {instrument.name}
+                          </h3>
+                          <p className="text-gray-600 text-sm">
+                            {instrument.pairs}
+                          </p>
+                          
+                          {/* Hover Details */}
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ 
+                              opacity: hoveredCard === idx ? 1 : 0,
+                              y: hoveredCard === idx ? 0 : 10
+                            }}
+                            transition={{ duration: 0.3 }}
+                            className="mt-4 pt-4 border-t border-gray-200"
+                          >
+                            <div className="flex items-center justify-between text-xs">
+                              <span className="text-gray-600">
+                                {language === "ar" ? "السبريد من" : "Spread from"}
+                              </span>
+                              <span className="font-bold text-blue-600">0.1 pips</span>
+                            </div>
+                          </motion.div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
