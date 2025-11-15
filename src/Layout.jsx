@@ -260,7 +260,7 @@ export default function Layout({ children, currentPageName }) {
                 </li>
                 <li className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
-                  <span>info@rfttrade.com</span>
+                  <span>admin@ruyaacapital.com</span>
                 </li>
               </ul>
             </div>
