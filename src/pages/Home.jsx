@@ -26,6 +26,7 @@ import {
   Bot,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import AITradingChat from "../components/home/AITradingChat";
 
 export default function Home({ language = "en" }) {
   const [activeInstrument, setActiveInstrument] = useState(0);
@@ -493,7 +494,7 @@ export default function Home({ language = "en" }) {
         </div>
       </section>
 
-      {/* Why Choose Us */}
+      {/* AI Trading Chat Demo */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -530,23 +531,8 @@ export default function Home({ language = "en" }) {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative"
             >
-              <div className="aspect-square rounded-3xl bg-gradient-to-br from-blue-600 to-cyan-600 p-1">
-                <div className="w-full h-full rounded-3xl bg-white p-8 flex items-center justify-center">
-                  <div className="text-center">
-                    <Brain className="w-24 h-24 mx-auto mb-6 text-blue-600" />
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                      {language === "en" ? "Smart Trading Platform" : "منصة تداول ذكية"}
-                    </h3>
-                    <p className="text-gray-600">
-                      {language === "en"
-                        ? "Advanced tools and analytics for professional traders"
-                        : "أدوات وتحليلات متقدمة للمتداولين المحترفين"}
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <AITradingChat language={language} />
             </motion.div>
           </div>
         </div>
