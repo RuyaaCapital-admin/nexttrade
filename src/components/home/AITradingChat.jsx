@@ -1,5 +1,5 @@
 import React from "react";
-import { Bot, User, TrendingUp, TrendingDown } from "lucide-react";
+import { User, TrendingUp, TrendingDown } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function AITradingChat({ language = "en" }) {
@@ -87,8 +87,12 @@ export default function AITradingChat({ language = "en" }) {
     <div className="bg-gradient-to-br from-slate-50 to-white rounded-3xl p-6 shadow-xl border border-slate-200 h-full flex flex-col">
       {/* Chat Header */}
       <div className="flex items-center gap-3 pb-4 border-b border-slate-200 mb-4">
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center">
-          <Bot className="w-6 h-6 text-white" />
+        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center p-1 shadow-sm">
+          <img 
+            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/f9eb99f2f_d2b4194c-19cd-4925-823f-26dd04fd3565.png" 
+            alt="RFT"
+            className="w-full h-full object-contain"
+          />
         </div>
         <div>
           <h3 className="font-bold text-gray-900">
@@ -114,17 +118,19 @@ export default function AITradingChat({ language = "en" }) {
             className={`flex gap-3 ${msg.type === 'user' ? 'flex-row-reverse' : 'flex-row'}`}
           >
             {/* Avatar */}
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
-              msg.type === 'ai' 
-                ? 'bg-gradient-to-br from-blue-600 to-cyan-600' 
-                : 'bg-gradient-to-br from-slate-600 to-slate-700'
-            }`}>
-              {msg.type === 'ai' ? (
-                <Bot className="w-4 h-4 text-white" />
-              ) : (
+            {msg.type === 'ai' ? (
+              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center flex-shrink-0 p-1 shadow-sm">
+                <img 
+                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/f9eb99f2f_d2b4194c-19cd-4925-823f-26dd04fd3565.png" 
+                  alt="RFT"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            ) : (
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-slate-600 to-slate-700 flex items-center justify-center flex-shrink-0">
                 <User className="w-4 h-4 text-white" />
-              )}
-            </div>
+              </div>
+            )}
 
             {/* Message Content */}
             <div className={`flex flex-col ${msg.type === 'user' ? 'items-end' : 'items-start'} max-w-[80%]`}>
