@@ -938,8 +938,21 @@ export default function Home({ language = "en" }) {
       </section>
 
       {/* Getting Started Steps */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-800 to-slate-900 text-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-800 to-slate-900 text-white relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-20">
+          <motion.img
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 0.2, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/8095c590d_d3674566-7855-461d-9c9a-79d4a85271fc.png"
+            alt="Steps"
+            className="w-full max-w-4xl h-auto object-contain"
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.steps.title}</h2>
           </div>
@@ -955,14 +968,14 @@ export default function Home({ language = "en" }) {
                 className="relative">
 
                 <div className="text-center">
-                  <div className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/30 flex items-center justify-center mx-auto mb-6 text-3xl font-bold">
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-600/30 to-cyan-600/30 backdrop-blur-sm border-2 border-cyan-400/50 flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-lg shadow-cyan-500/20">
                     {idx + 1}
                   </div>
                   <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
                   <p className="text-gray-300">{step.desc}</p>
                 </div>
                 {idx < t.steps.items.length - 1 &&
-                  <div className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-white/20" />
+                  <div className="hidden lg:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-cyan-400/50 to-transparent" />
                 }
               </motion.div>
             )}
