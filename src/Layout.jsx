@@ -95,13 +95,12 @@ export default function Layout({ children, currentPageName }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <Link to={createPageUrl("Home")} className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center shadow-lg">
-                <TrendingUp className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                RFT Trade
-              </span>
+            <Link to={createPageUrl("Home")} className="flex items-center">
+              <img 
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/f9eb99f2f_d2b4194c-19cd-4925-823f-26dd04fd3565.png" 
+                alt="RFT Trade"
+                className="h-12 w-auto"
+              />
             </Link>
 
             {/* Desktop Navigation */}
@@ -216,10 +215,11 @@ export default function Layout({ children, currentPageName }) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center">
-                  <TrendingUp className="w-6 h-6 text-white" />
-                </div>
-                <span className="text-xl font-bold">RFT Trade</span>
+                <img 
+                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/f9eb99f2f_d2b4194c-19cd-4925-823f-26dd04fd3565.png" 
+                  alt="RFT Trade"
+                  className="h-10 w-auto"
+                />
               </div>
               <p className="text-gray-400 text-sm">
                 {language === "en" 
