@@ -391,23 +391,25 @@ export default function Home({ language = "en" }) {
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">{t.exclusiveOffers.subtitle}</p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-5 gap-8 items-center">
             {/* Left Side - Image */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="flex justify-center">
-              <img
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/868d25c0b_adea7e8e-9be2-4493-9988-3dc901629dd5.png"
-                alt="Trading Bonuses"
-                className="w-full max-w-lg h-auto"
-              />
+              className="lg:col-span-2 flex justify-center">
+              <div className="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-3xl p-8 shadow-xl">
+                <img
+                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/868d25c0b_adea7e8e-9be2-4493-9988-3dc901629dd5.png"
+                  alt="Trading Bonuses"
+                  className="w-full h-auto"
+                />
+              </div>
             </motion.div>
 
             {/* Right Side - 2 Cards */}
-            <div className="space-y-6">
+            <div className="lg:col-span-3 space-y-6">
               {/* Welcome Bonus Card */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -416,77 +418,55 @@ export default function Home({ language = "en" }) {
                 transition={{ delay: 0.2 }}
                 whileHover={{ y: -5 }}
                 className="relative">
-                <Card className="border-0 shadow-2xl bg-white hover:shadow-3xl transition-all duration-300">
-                  <CardContent className="p-8">
-                    <div className="flex items-start justify-between mb-6">
-                      <div className="flex items-start gap-4">
-                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center shadow-lg flex-shrink-0">
-                          <Gift className="w-8 h-8 text-white" />
+                <Card className="border-0 shadow-xl bg-white hover:shadow-2xl transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex items-start gap-3">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center shadow-lg flex-shrink-0">
+                          <Gift className="w-6 h-6 text-white" />
                         </div>
                         <div>
-                          <h3 className="text-2xl font-bold mb-2 text-gray-900">
+                          <h3 className="text-xl font-bold mb-1 text-gray-900">
                             {language === "en" ? "50% Welcome Bonus" : "مكافأة ترحيب 50%"}
                           </h3>
-                          <p className="text-gray-600 leading-relaxed">
+                          <p className="text-gray-600 text-sm leading-relaxed">
                             {language === "en"
                               ? "Get 50% bonus on your first deposit up to $500"
                               : "احصل على مكافأة 50% على إيداعك الأول حتى 500 دولار"}
                           </p>
                         </div>
                       </div>
-                      <Badge className="bg-gradient-to-r from-orange-500 to-red-500 text-white border-0 text-xs px-3 py-1 flex-shrink-0">
-                        {language === "en" ? "Limited Time" : "عرض محدود"}
+                      <Badge className="bg-gradient-to-r from-orange-500 to-red-500 text-white border-0 text-xs px-2 py-1 flex-shrink-0">
+                        {language === "en" ? "Limited" : "محدود"}
                       </Badge>
                     </div>
 
                     {/* Real Example */}
-                    <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-xl p-6 border-2 border-orange-200">
-                      <div className="text-center mb-4">
-                        <div className="text-sm font-semibold text-orange-700 mb-2">
-                          {language === "en" ? "REAL EXAMPLE" : "مثال حقيقي"}
-                        </div>
-                      </div>
-
-                      <div className="space-y-3">
-                        <div className="flex items-center justify-between bg-white/70 rounded-lg p-3">
-                          <div className="flex items-center gap-2">
-                            <DollarSign className="w-5 h-5 text-gray-600" />
-                            <span className="text-gray-700 font-medium">{language === "en" ? "Your Deposit" : "إيداعك"}</span>
-                          </div>
-                          <span className="text-xl font-bold text-gray-900">$1,000</span>
+                    <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-4 border border-green-200">
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between text-sm">
+                          <span className="text-gray-700">{language === "en" ? "Your Deposit" : "إيداعك"}</span>
+                          <span className="font-bold text-gray-900">$1,000</span>
                         </div>
 
-                        <div className="flex items-center justify-between bg-white/70 rounded-lg p-3">
-                          <div className="flex items-center gap-2">
-                            <Gift className="w-5 h-5 text-orange-600" />
-                            <span className="text-orange-700 font-medium">{language === "en" ? "Bonus (50%)" : "المكافأة (50%)"}</span>
-                          </div>
-                          <span className="text-xl font-bold text-orange-600">+$500</span>
+                        <div className="flex items-center justify-between text-sm">
+                          <span className="text-green-700 font-medium">{language === "en" ? "Bonus (50%)" : "المكافأة (50%)"}</span>
+                          <span className="font-bold text-green-600">+$500</span>
                         </div>
 
-                        <div className="h-px bg-orange-300 my-2" />
+                        <div className="h-px bg-green-300 my-1" />
 
-                        <div className="flex items-center justify-between bg-gradient-to-r from-orange-100 to-red-100 rounded-lg p-4 border-2 border-orange-400">
-                          <div className="flex items-center gap-2">
-                            <Wallet className="w-6 h-6 text-orange-700" />
-                            <span className="text-gray-900 font-bold text-lg">{language === "en" ? "Trading Capital" : "رأس مال التداول"}</span>
-                          </div>
-                          <span className="text-3xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">$1,500</span>
+                        <div className="flex items-center justify-between bg-gradient-to-r from-green-100 to-emerald-100 rounded-lg p-2 border border-green-300">
+                          <span className="text-gray-900 font-bold">{language === "en" ? "Total Trading Capital" : "رأس المال الكلي"}</span>
+                          <span className="text-xl font-bold text-green-600">$1,500</span>
                         </div>
-                      </div>
-
-                      <div className="mt-4 flex items-center justify-center gap-2 text-sm text-orange-800">
-                        <TrendingUp className="w-4 h-4" />
-                        <span className="font-semibold">
-                          {language === "en" ? "50% more buying power to maximize profits!" : "قوة شرائية أكبر بنسبة 50% لتعظيم الأرباح!"}
-                        </span>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
               </motion.div>
 
-              {/* Premium Features Card */}
+              {/* Free Benefits Card */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -494,86 +474,66 @@ export default function Home({ language = "en" }) {
                 transition={{ delay: 0.3 }}
                 whileHover={{ y: -5 }}
                 className="relative">
-                <Card className="border-0 shadow-2xl bg-white hover:shadow-3xl transition-all duration-300">
-                  <CardContent className="p-8">
-                    <div className="flex items-start justify-between mb-6">
-                      <div className="flex items-start gap-4">
-                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg flex-shrink-0">
-                          <Sparkles className="w-8 h-8 text-white" />
+                <Card className="border-0 shadow-xl bg-white hover:shadow-2xl transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex items-start gap-3">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg flex-shrink-0">
+                          <Sparkles className="w-6 h-6 text-white" />
                         </div>
                         <div>
-                          <h3 className="text-2xl font-bold mb-2 text-gray-900">
-                            {language === "en" ? "Exclusive Premium Package" : "باقة مميزة حصرية"}
+                          <h3 className="text-xl font-bold mb-1 text-gray-900">
+                            {language === "en" ? "Free Premium Benefits" : "مزايا مجانية مميزة"}
                           </h3>
-                          <p className="text-gray-600 leading-relaxed">
+                          <p className="text-gray-600 text-sm leading-relaxed">
                             {language === "en"
-                              ? "Unlock all premium features worth $299/month - FREE forever"
-                              : "افتح جميع الميزات المميزة بقيمة 299 دولار/شهر - مجاناً للأبد"}
+                              ? "Unlock all premium tools on registration"
+                              : "افتح جميع الأدوات المميزة عند التسجيل"}
                           </p>
                         </div>
                       </div>
-                      <Badge className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white border-0 text-xs px-3 py-1 flex-shrink-0">
-                        {language === "en" ? "Premium" : "مميز"}
+                      <Badge className="bg-gradient-to-r from-green-500 to-emerald-500 text-white border-0 text-xs px-2 py-1 flex-shrink-0">
+                        {language === "en" ? "FREE" : "مجاني"}
                       </Badge>
                     </div>
 
-                    {/* Value Breakdown */}
-                    <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6 border-2 border-blue-200">
-                      <div className="text-center mb-4">
-                        <div className="text-sm font-semibold text-blue-700 mb-2">
-                          {language === "en" ? "INCLUDED FOR FREE" : "مشمول مجاناً"}
-                        </div>
-                      </div>
-
-                      <div className="space-y-3 mb-4">
-                        <div className="flex items-center justify-between bg-white/70 rounded-lg p-3">
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
-                              <Bot className="w-4 h-4 text-white" />
-                            </div>
-                            <span className="text-gray-700 font-medium text-sm">{language === "en" ? "AI Trading Assistant" : "مساعد تداول AI"}</span>
+                    {/* Benefits List */}
+                    <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg p-4 border border-blue-200">
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-sm">
+                          <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center flex-shrink-0">
+                            <Bot className="w-3 h-3 text-white" />
                           </div>
-                          <span className="text-sm font-bold text-gray-500 line-through">$149/mo</span>
+                          <span className="text-gray-700 font-medium">{language === "en" ? "AI Trading Assistant" : "مساعد تداول بالذكاء الاصطناعي"}</span>
                         </div>
 
-                        <div className="flex items-center justify-between bg-white/70 rounded-lg p-3">
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
-                              <Bell className="w-4 h-4 text-white" />
-                            </div>
-                            <span className="text-gray-700 font-medium text-sm">{language === "en" ? "Live Trading Signals" : "إشارات تداول حية"}</span>
+                        <div className="flex items-center gap-2 text-sm">
+                          <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center flex-shrink-0">
+                            <Bell className="w-3 h-3 text-white" />
                           </div>
-                          <span className="text-sm font-bold text-gray-500 line-through">$99/mo</span>
+                          <span className="text-gray-700 font-medium">{language === "en" ? "Live Trading Signals" : "إشارات تداول حية"}</span>
                         </div>
 
-                        <div className="flex items-center justify-between bg-white/70 rounded-lg p-3">
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
-                              <Users className="w-4 h-4 text-white" />
-                            </div>
-                            <span className="text-gray-700 font-medium text-sm">{language === "en" ? "Dedicated Account Manager" : "مدير حساب متخصص"}</span>
+                        <div className="flex items-center gap-2 text-sm">
+                          <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
+                            <LineChart className="w-3 h-3 text-white" />
                           </div>
-                          <span className="text-sm font-bold text-gray-500 line-through">$51/mo</span>
+                          <span className="text-gray-700 font-medium">{language === "en" ? "Market Analysis Tools" : "أدوات تحليل السوق"}</span>
                         </div>
-                      </div>
 
-                      <div className="h-px bg-blue-300 my-3" />
-
-                      <div className="bg-gradient-to-r from-blue-100 to-cyan-100 rounded-lg p-4 border-2 border-blue-400">
-                        <div className="flex items-center justify-between">
-                          <span className="text-gray-900 font-bold text-lg">{language === "en" ? "Total Value" : "القيمة الإجمالية"}</span>
-                          <div className="text-right">
-                            <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">$299/mo</div>
-                            <div className="text-xs text-gray-600">{language === "en" ? "=$3,588/year" : "=3,588 دولار/سنة"}</div>
+                        <div className="flex items-center gap-2 text-sm">
+                          <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center flex-shrink-0">
+                            <Users className="w-3 h-3 text-white" />
                           </div>
+                          <span className="text-gray-700 font-medium">{language === "en" ? "Dedicated Account Manager" : "مدير حساب متخصص"}</span>
                         </div>
-                      </div>
 
-                      <div className="mt-4 text-center">
-                        <div className="inline-flex items-center gap-2 bg-green-100 border-2 border-green-400 rounded-full px-4 py-2">
-                          <CheckCircle className="w-5 h-5 text-green-600" />
-                          <span className="text-green-800 font-bold">
-                            {language === "en" ? "100% FREE Forever!" : "مجاناً 100% للأبد!"}
+                        <div className="h-px bg-blue-300 my-2" />
+
+                        <div className="flex items-center justify-center gap-2 bg-green-100 rounded-lg p-2 border border-green-300">
+                          <CheckCircle className="w-4 h-4 text-green-600" />
+                          <span className="text-green-800 font-bold text-sm">
+                            {language === "en" ? "All FREE on Registration" : "كلها مجانية عند التسجيل"}
                           </span>
                         </div>
                       </div>
@@ -674,7 +634,7 @@ export default function Home({ language = "en" }) {
             <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
               {t.instruments.title}
             </h2>
-            <p className="text-xl text-gray-600">{t.instruments.subtitle}</p>
+            <p className="text-xl text-gray-600}>{t.instruments.subtitle}</p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
