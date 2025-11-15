@@ -214,8 +214,8 @@ export default function Trading({ language = "en" }) {
             </h2>
             <p className="text-xl text-gray-600">
               {language === "en" 
-                ? "Live prices updated every 10 seconds from global markets"
-                : "الأسعار المباشرة يتم تحديثها كل 10 ثوانٍ من الأسواق العالمية"}
+                ? "Live prices"
+                : "اسعار مباشرة"}
             </p>
           </div>
 
