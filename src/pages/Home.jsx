@@ -26,8 +26,8 @@ import {
   Wallet,
   Bot,
   TrendingDown,
-  Activity } from
-"lucide-react";
+  Activity
+} from "lucide-react";
 import { motion } from "framer-motion";
 import AITradingChat from "../components/home/AITradingChat";
 
@@ -45,80 +45,80 @@ export default function Home({ language = "en" }) {
         cta2: "Try Demo Account"
       },
       stats: [
-      { value: "120+", label: "Trading Instruments" },
-      { value: "0.0", label: "Commission" },
-      { value: "24/7", label: "Support" },
-      { value: "<1s", label: "Execution" }],
+        { value: "120+", label: "Trading Instruments" },
+        { value: "0.0", label: "Commission" },
+        { value: "24/7", label: "Support" },
+        { value: "<1s", label: "Execution" }],
 
       exclusiveOffers: {
         title: "Exclusive Registration Bonuses",
         subtitle: "Get premium features when you open your account today",
-        offers: [// This array is no longer directly mapped but its data is reflected in the new hardcoded cards.
-        {
-          icon: Gift,
-          title: "Welcome Bonus",
-          desc: "Up to $500 trading bonus on your first deposit",
-          badge: "Limited Time",
-          color: "from-orange-500 to-red-500"
-        },
-        {
-          icon: Bot,
-          title: "AI Trading Assistant",
-          desc: "Free access to our advanced AI-powered trading advisor",
-          badge: "Premium Feature",
-          color: "from-indigo-500 to-purple-500"
-        },
-        {
-          icon: Bell,
-          title: "Live Trade Signals",
-          desc: "Receive real-time trading signals from expert analysts",
-          badge: "Free Forever",
-          color: "from-green-500 to-emerald-500"
-        },
-        {
-          icon: Wallet,
-          title: "Instant Withdrawals",
-          desc: "Withdraw your profits instantly 24/7 with zero fees",
-          badge: "No Limits",
-          color: "from-blue-500 to-cyan-500"
-        }]
+        offers: [ // This array is no longer directly mapped but its data is reflected in the new hardcoded cards.
+          {
+            icon: Gift,
+            title: "Welcome Bonus",
+            desc: "Up to $500 trading bonus on your first deposit",
+            badge: "Limited Time",
+            color: "from-orange-500 to-red-500"
+          },
+          {
+            icon: Bot,
+            title: "AI Trading Assistant",
+            desc: "Free access to our advanced AI-powered trading advisor",
+            badge: "Premium Feature",
+            color: "from-indigo-500 to-purple-500"
+          },
+          {
+            icon: Bell,
+            title: "Live Trade Signals",
+            desc: "Receive real-time trading signals from expert analysts",
+            badge: "Free Forever",
+            color: "from-green-500 to-emerald-500"
+          },
+          {
+            icon: Wallet,
+            title: "Instant Withdrawals",
+            desc: "Withdraw your profits instantly 24/7 with zero fees",
+            badge: "No Limits",
+            color: "from-blue-500 to-cyan-500"
+          }]
 
       },
       features: [
-      { icon: Shield, title: "Trusted Broker", desc: "Regulated and secure trading environment" },
-      { icon: Zap, title: "Instant Execution", desc: "Lightning-fast order execution in milliseconds" },
-      { icon: DollarSign, title: "Zero Commission", desc: "No hidden fees or commission charges" },
-      { icon: Globe, title: "Islamic Accounts", desc: "Swap-free trading for Islamic finance" }],
+        { icon: Shield, title: "Trusted Broker", desc: "Regulated and secure trading environment" },
+        { icon: Zap, title: "Instant Execution", desc: "Lightning-fast order execution in milliseconds" },
+        { icon: DollarSign, title: "Zero Commission", desc: "No hidden fees or commission charges" },
+        { icon: Globe, title: "Islamic Accounts", desc: "Swap-free trading for Islamic finance" }],
 
       instruments: {
         title: "Trade Multiple Asset Classes",
         subtitle: "Diversify your portfolio with our wide range of instruments",
         items: [
-        { name: "Forex", pairs: "50+ Currency Pairs", icon: Globe },
-        { name: "Indices", pairs: "20+ Global Indices", icon: BarChart3 },
-        { name: "Commodities", pairs: "Gold, Silver, Oil", icon: Coins },
-        { name: "Crypto", pairs: "Top Cryptocurrencies", icon: TrendingUp }]
+          { name: "Forex", pairs: "50+ Currency Pairs", icon: Globe },
+          { name: "Indices", pairs: "20+ Global Indices", icon: BarChart3 },
+          { name: "Commodities", pairs: "Gold, Silver, Oil", icon: Coins },
+          { name: "Crypto", pairs: "Top Cryptocurrencies", icon: TrendingUp }]
 
       },
       whyChoose: {
         title: "Why Choose RFT Trade?",
         subtitle: "Built by traders, for traders",
         reasons: [
-        "Ultra-low spreads starting from 0.1 pips",
-        "Dedicated account manager for personalized support",
-        "Advanced MT5 platform with expert advisors",
-        "Instant deposits and withdrawals 24/7",
-        "Comprehensive educational resources",
-        "Multi-asset trading on one platform"]
+          "Ultra-low spreads starting from 0.1 pips",
+          "Dedicated account manager for personalized support",
+          "Advanced MT5 platform with expert advisors",
+          "Instant deposits and withdrawals 24/7",
+          "Comprehensive educational resources",
+          "Multi-asset trading on one platform"]
 
       },
       steps: {
         title: "Start Trading in 4 Easy Steps",
         items: [
-        { title: "Register", desc: "Create your account in minutes" },
-        { title: "Verify", desc: "Upload your documents" },
-        { title: "Fund", desc: "Deposit with multiple payment methods" },
-        { title: "Trade", desc: "Start trading 120+ instruments" }]
+          { title: "Register", desc: "Create your account in minutes" },
+          { title: "Verify", desc: "Upload your documents" },
+          { title: "Fund", desc: "Deposit with multiple payment methods" },
+          { title: "Trade", desc: "Start trading 120+ instruments" }]
 
       }
     },
@@ -130,80 +130,80 @@ export default function Home({ language = "en" }) {
         cta2: "تجربة حساب تجريبي"
       },
       stats: [
-      { value: "120+", label: "أداة تداول" },
-      { value: "0.0", label: "عمولة" },
-      { value: "24/7", label: "دعم فني" },
-      { value: "<1s", label: "تنفيذ فوري" }],
+        { value: "120+", label: "أداة تداول" },
+        { value: "0.0", label: "عمولة" },
+        { value: "24/7", label: "دعم فني" },
+        { value: "<1s", label: "تنفيذ فوري" }],
 
       exclusiveOffers: {
         title: "مكافآت التسجيل الحصرية",
         subtitle: "احصل على ميزات مميزة عند فتح حسابك اليوم",
-        offers: [// This array is no longer directly mapped but its data is reflected in the new hardcoded cards.
-        {
-          icon: Gift,
-          title: "مكافأة الترحيب",
-          desc: "ما يصل إلى 500 دولار مكافأة تداول على إيداعك الأول",
-          badge: "عرض محدود",
-          color: "from-orange-500 to-red-500"
-        },
-        {
-          icon: Bot,
-          title: "مساعد التداول بالذكاء الاصطناعي",
-          desc: "وصول مجاني لمستشار التداول المتقدم بالذكاء الاصطناعي",
-          badge: "ميزة مميزة",
-          color: "from-indigo-500 to-purple-500"
-        },
-        {
-          icon: Bell,
-          title: "إشارات التداول المباشرة",
-          desc: "احصل على إشارات تداول فورية من محللين خبراء",
-          badge: "مجاني للأبد",
-          color: "from-green-500 to-emerald-500"
-        },
-        {
-          icon: Wallet,
-          title: "سحب فوري",
-          desc: "اسحب أرباحك فوراً على مدار الساعة بدون رسوم",
-          badge: "بدون حدود",
-          color: "from-blue-500 to-cyan-500"
-        }]
+        offers: [ // This array is no longer directly mapped but its data is reflected in the new hardcoded cards.
+          {
+            icon: Gift,
+            title: "مكافأة الترحيب",
+            desc: "ما يصل إلى 500 دولار مكافأة تداول على إيداعك الأول",
+            badge: "عرض محدود",
+            color: "from-orange-500 to-red-500"
+          },
+          {
+            icon: Bot,
+            title: "مساعد التداول بالذكاء الاصطناعي",
+            desc: "وصول مجاني لمستشار التداول المتقدم بالذكاء الاصطناعي",
+            badge: "ميزة مميزة",
+            color: "from-indigo-500 to-purple-500"
+          },
+          {
+            icon: Bell,
+            title: "إشارات التداول المباشرة",
+            desc: "احصل على إشارات تداول فورية من محللين خبراء",
+            badge: "مجاني للأبد",
+            color: "from-green-500 to-emerald-500"
+          },
+          {
+            icon: Wallet,
+            title: "سحب فوري",
+            desc: "اسحب أرباحك فوراً على مدار الساعة بدون رسوم",
+            badge: "بدون حدود",
+            color: "from-blue-500 to-cyan-500"
+          }]
 
       },
       features: [
-      { icon: Shield, title: "وسيط موثوق", desc: "بيئة تداول آمنة ومنظمة" },
-      { icon: Zap, title: "تنفيذ فوري", desc: "تنفيذ الأوامر بسرعة البرق في أجزاء من الثانية" },
-      { icon: DollarSign, title: "بدون عمولة", desc: "لا رسوم خفية أو عمولات" },
-      { icon: Globe, title: "حسابات إسلامية", desc: "تداول خالي من الفوائد الربوية" }],
+        { icon: Shield, title: "وسيط موثوق", desc: "بيئة تداول آمنة ومنظمة" },
+        { icon: Zap, title: "تنفيذ فوري", desc: "تنفيذ الأوامر بسرعة البرق في أجزاء من الثانية" },
+        { icon: DollarSign, title: "بدون عمولة", desc: "لا رسوم خفية أو عمولات" },
+        { icon: Globe, title: "حسابات إسلامية", desc: "تداول خالي من الفوائد الربوية" }],
 
       instruments: {
         title: "تداول فئات أصول متعددة",
         subtitle: "نوّع محفظتك مع مجموعة واسعة من الأدوات",
         items: [
-        { name: "العملات", pairs: "أكثر من 50 زوج عملة", icon: Globe },
-        { name: "المؤشرات", pairs: "أكثر من 20 مؤشر عالمي", icon: BarChart3 },
-        { name: "السلع", pairs: "ذهب، فضة، نفط", icon: Coins },
-        { name: "العملات الرقمية", pairs: "أفضل العملات الرقمية", icon: TrendingUp }]
+          { name: "العملات", pairs: "أكثر من 50 زوج عملة", icon: Globe },
+          { name: "المؤشرات", pairs: "أكثر من 20 مؤشر عالمي", icon: BarChart3 },
+          { name: "السلع", pairs: "ذهب، فضة، نفط", icon: Coins },
+          { name: "العملات الرقمية", pairs: "أفضل العملات الرقمية", icon: TrendingUp }]
 
       },
       whyChoose: {
         title: "لماذا RFT Trade؟",
         subtitle: "صُنع بواسطة متداولين، للمتداولين",
         reasons: [
-        "فروقات أسعار منخفضة جداً تبدأ من 0.1 نقطة",
-        "مدير حساب متخصص لدعم شخصي",
-        "منصة MT5 متقدمة مع المستشارين الخبراء",
-        "إيداعات وسحوبات فورية على مدار الساعة",
-        "موارد تعليمية شاملة",
-        "تداول متعدد الأصول على منصة واحدة"]
+          "فروقات أسعار منخفضة جداً تبدأ من 0.1 نقطة",
+          "مدير حساب متخصص لدعم شخصي",
+          "منصة MT5 متقدمة مع المستشارين الخبراء",
+          "إيداعات وسحوبات فورية على مدار الساعة",
+          "موارد تعليمية شاملة",
+          "تداول متعدد الأصول على منصة واحدة"]
 
       },
       steps: {
         title: "ابدأ التداول في 4 خطوات سهلة",
         items: [
-        { title: "التسجيل", desc: "أنشئ حسابك في دقائق" },
-        { title: "التحقق", desc: "قم برفع مستنداتك" },
-        { title: "التمويل", desc: "أودع بطرق دفع متعددة" },
-        { title: "التداول", desc: "ابدأ التداول بأكثر من 120 أداة" }]
+          { title: "التسجيل", desc: "أنشئ حسابك في دقائق" },
+          { title: "التحقق", desc: "قم برفع مستنداتك" },
+          { title: "التمويل", desc: "أودع بطرق دفع متعددة" },
+          { title: "التداول", desc: "ابدأ التداول بأكثر من 120 أداة" }]
 
       }
     }
@@ -212,30 +212,30 @@ export default function Home({ language = "en" }) {
   const t = content[language];
 
   const marketData = [
-  {
-    symbol: "XAU/USD",
-    name: language === "ar" ? "الذهب" : "Gold",
-    price: "2,654.32",
-    change: "+1.24%",
-    isPositive: true,
-    icon: Coins
-  },
-  {
-    symbol: "NAS100",
-    name: language === "ar" ? "ناسداك" : "NASDAQ",
-    price: "16,428.82",
-    change: "+0.87%",
-    isPositive: true,
-    icon: BarChart3
-  },
-  {
-    symbol: "EUR/USD",
-    name: language === "ar" ? "يورو/دولار" : "Euro",
-    price: "1.0865",
-    change: "-0.15%",
-    isPositive: false,
-    icon: DollarSign
-  }];
+    {
+      symbol: "XAU/USD",
+      name: language === "ar" ? "الذهب" : "Gold",
+      price: "2,654.32",
+      change: "+1.24%",
+      isPositive: true,
+      icon: Coins
+    },
+    {
+      symbol: "NAS100",
+      name: language === "ar" ? "ناسداك" : "NASDAQ",
+      price: "16,428.82",
+      change: "+0.87%",
+      isPositive: true,
+      icon: BarChart3
+    },
+    {
+      symbol: "EUR/USD",
+      name: language === "ar" ? "يورو/دولار" : "Euro",
+      price: "1.0865",
+      change: "-0.15%",
+      isPositive: false,
+      icon: DollarSign
+    }];
 
 
   return (
@@ -279,12 +279,12 @@ export default function Home({ language = "en" }) {
                 transition={{ duration: 1, delay: 0.2 }}>
 
                 {t.hero.title.split(' ').map((word, idx) =>
-                <motion.span
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 + idx * 0.1 }}
-                  className="inline-block mr-3">
+                  <motion.span
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 + idx * 0.1 }}
+                    className="inline-block mr-3">
 
                     {word}
                   </motion.span>
@@ -302,19 +302,16 @@ export default function Home({ language = "en" }) {
 
               {/* MT5 Platform Badge */}
               <motion.div
-                className="flex items-center gap-3 mb-10 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl px-6 py-4 w-fit"
+                className="mb-10 w-fit"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 1 }}>
 
-                <div className="mt-1 mx-auto my-1 px-24 h-16 w-auto">
-                  {language === "ar" ? "منصة التداول:" : "Trading Platform:"}
-                </div>
-                <div className="flex items-center gap-2 bg-white rounded-lg px-4 py-2">
-                  <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                    MT5
-                  </span>
-                </div>
+                <img
+                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/4d9486265_a0d196db-a9b9-45ae-805d-c78916d35de7.png"
+                  alt="MetaTrader 5"
+                  className="h-16 w-auto"
+                />
               </motion.div>
 
               <motion.div
@@ -349,12 +346,12 @@ export default function Home({ language = "en" }) {
               {/* Stats */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {t.stats.map((stat, idx) =>
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.1 + 1.4 }}
-                  className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/10 hover:border-blue-500/50 transition-all duration-300">
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.1 + 1.4 }}
+                    className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/10 hover:border-blue-500/50 transition-all duration-300">
 
                     <div className="text-2xl md:text-3xl font-bold text-white mb-1">
                       {stat.value}
@@ -403,8 +400,8 @@ export default function Home({ language = "en" }) {
                 <img
                   src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/868d25c0b_adea7e8e-9be2-4493-9988-3dc901629dd5.png"
                   alt="Trading Bonuses"
-                  className="w-full h-auto" />
-
+                  className="w-full h-auto"
+                />
               </div>
             </motion.div>
 
@@ -430,9 +427,9 @@ export default function Home({ language = "en" }) {
                             {language === "en" ? "50% Welcome Bonus" : "مكافأة ترحيب 50%"}
                           </h3>
                           <p className="text-gray-600 text-sm leading-relaxed">
-                            {language === "en" ?
-                            "Get 50% bonus on your first deposit up to $500" :
-                            "احصل على مكافأة 50% على إيداعك الأول حتى 500 دولار"}
+                            {language === "en"
+                              ? "Get 50% bonus on your first deposit up to $500"
+                              : "احصل على مكافأة 50% على إيداعك الأول حتى 500 دولار"}
                           </p>
                         </div>
                       </div>
@@ -486,9 +483,9 @@ export default function Home({ language = "en" }) {
                             {language === "en" ? "Free Premium Benefits" : "مزايا مجانية مميزة"}
                           </h3>
                           <p className="text-gray-600 text-sm leading-relaxed">
-                            {language === "en" ?
-                            "Unlock all premium tools on registration" :
-                            "افتح جميع الأدوات المميزة عند التسجيل"}
+                            {language === "en"
+                              ? "Unlock all premium tools on registration"
+                              : "افتح جميع الأدوات المميزة عند التسجيل"}
                           </p>
                         </div>
                       </div>
@@ -560,8 +557,8 @@ export default function Home({ language = "en" }) {
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat'
-                }} />
-
+                }}
+              />
 
               {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600/95 to-cyan-600/95" />
@@ -570,13 +567,13 @@ export default function Home({ language = "en" }) {
               <CardContent className="relative p-8 md:p-12">
                 <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   {language === "en" ?
-                  "Ready to Claim Your Bonuses?" :
-                  "هل أنت مستعد للحصول على مكافآتك؟"}
+                    "Ready to Claim Your Bonuses?" :
+                    "هل أنت مستعد للحصول على مكافآتك؟"}
                 </h3>
                 <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
                   {language === "en" ?
-                  "Open your account now and unlock all premium features instantly!" :
-                  "افتح حسابك الآن واحصل على جميع الميزات المميزة فوراً!"}
+                    "Open your account now and unlock all premium features instantly!" :
+                    "افتح حسابك الآن واحصل على جميع الميزات المميزة فوراً!"}
                 </p>
                 <Button
                   size="lg"
@@ -704,7 +701,7 @@ export default function Home({ language = "en" }) {
                     style={{ transformStyle: 'preserve-3d' }}>
 
                     <Card className={`h-full bg-white border-0 shadow-xl transition-all duration-300 ${
-                    hoveredCard === idx ? 'shadow-2xl' : ''}`
+                      hoveredCard === idx ? 'shadow-2xl' : ''}`
                     }>
                       <CardContent className="p-6 relative">
                         {/* Animated Gradient Background */}
@@ -777,13 +774,13 @@ export default function Home({ language = "en" }) {
 
               <div className="space-y-4">
                 {t.whyChoose.reasons.map((reason, idx) =>
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="flex items-start gap-3">
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="flex items-start gap-3">
 
                     <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="w-4 h-4 text-white" />
@@ -848,7 +845,7 @@ export default function Home({ language = "en" }) {
                               <div className="text-right">
                                 <div className="text-gray-900 font-bold text-lg">{item.price}</div>
                                 <div className={`text-sm font-medium flex items-center gap-1 ${
-                                item.isPositive ? 'text-green-500' : 'text-red-500'}`
+                                  item.isPositive ? 'text-green-500' : 'text-red-500'}`
                                 }>
                                   {item.isPositive ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
                                   {item.change}
@@ -900,20 +897,20 @@ export default function Home({ language = "en" }) {
               transition={{ duration: 0.8 }}
               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6918477c99a4af56630b48a6/85cac722c_ChatGPTImageNov15202504_05_14PM.png"
               alt="Trading Steps"
-              className="w-full max-w-4xl h-auto" />
-
+              className="w-full max-w-4xl h-auto"
+            />
           </div>
 
           {/* Step Labels */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {t.steps.items.map((step, idx) =>
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="text-center">
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="text-center">
                 <h3 className="text-xl font-bold mb-1">{step.title}</h3>
                 <p className="text-gray-400 text-sm">{step.desc}</p>
               </motion.div>
