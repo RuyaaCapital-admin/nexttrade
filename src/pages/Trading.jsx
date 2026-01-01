@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import LivePriceTable from "../components/trading/LivePriceTable";
+import PropTypes from "prop-types";
 
 export default function Trading({ language = "en" }) {
   const [activeTab, setActiveTab] = useState("forex");
