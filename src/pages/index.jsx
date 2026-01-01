@@ -8,6 +8,8 @@ import Home from "./Home";
 
 import Trading from "./Trading";
 
+import Profile from "./Profile";
+
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
 const PAGES = {
@@ -19,6 +21,7 @@ const PAGES = {
     Home: Home,
     
     Trading: Trading,
+    Profile: Profile,
     
 }
 
@@ -54,6 +57,7 @@ function PagesContent() {
                 <Route path="/Home" element={<Home />} />
                 
                 <Route path="/Trading" element={<Trading />} />
+                <Route path="/Profile" element={<Profile />} />
                 
             </Routes>
         </Layout>
