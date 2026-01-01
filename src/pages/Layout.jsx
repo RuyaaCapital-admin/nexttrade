@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Globe, Menu, X, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import nextTradeLogo from "@/assets/nexttrade-logo.svg";
+import nextTradeLogo from "@/assets/nexttrade-logo.png";
 import {
   DropdownMenu,
   DropdownMenuContent,
