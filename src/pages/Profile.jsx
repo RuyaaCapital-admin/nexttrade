@@ -10,7 +10,18 @@ import {
   Phone,
   Globe2,
   Clock,
-  Loader2
+  Loader2,
+  Copy,
+  CheckCircle2,
+  User,
+  Lock,
+  History,
+  Gift,
+  ExternalLink,
+  ChevronRight,
+  Upload,
+  TrendingUp,
+  TrendingDown
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -35,327 +46,167 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/components/ui/use-toast";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Textarea } from "@/components/ui/textarea";
 import UserNotRegisteredError from "@/components/UserNotRegisteredError";
 import { fetchCurrentUser, updateCurrentUser } from "@/api/functions";
 import { base44 } from "@/api/base44Client";
 import { createPageUrl } from "@/utils";
 
-const defaultPreferences = {
-  tradeAlerts: true,
-  productUpdates: true,
-  marketing: false
-};
-
 const translations = {
   en: {
     heroTitle: "Account Center",
-    heroSubtitle: "Review your profile, fine-tune preferences, and keep your trading experience aligned with your goals.",
-    accountStatusLabel: "Status",
-    statusActive: "Active",
-    statusPending: "Pending Review",
-    statusSuspended: "Suspended",
-    pageSubtitle: "Your personal data is kept secure with enterprise-grade encryption.",
-    emailLabel: "Email",
-    phoneLabel: "Phone",
-    timezoneLabel: "Timezone",
-    lastLoginLabel: "Last Login",
-    accountCreatedLabel: "Member Since",
-    notAvailable: "Not available",
-    personalInformationTitle: "Personal information",
-    personalInformationDescription: "Keep your details current so our support and compliance teams can reach you when needed.",
-    fullNameLabel: "Full name",
-    fullNamePlaceholder: "e.g. Sarah Abdullah",
-    emailPlaceholder: "name@nexttrade.app",
-    phonePlaceholder: "+971 50 123 4567",
-    jobTitleLabel: "Role / title",
-    jobTitlePlaceholder: "Portfolio Manager",
-    languageLabel: "Language",
-    languagePlaceholder: "Select language",
-    timezonePlaceholder: "Select timezone",
-    saveButton: "Save changes",
-    savingLabel: "Saving...",
-    resetButton: "Reset",
-    preferencesTitle: "Communication preferences",
-    preferencesDescription: "Refine how we reach you with market intelligence, alerts, and updates.",
-    tradeAlertsLabel: "Trade alerts",
-    tradeAlertsDescription: "Receive instant notifications for executed trades and margin requirements.",
-    productUpdatesLabel: "Product updates",
-    productUpdatesDescription: "Be the first to hear about new asset listings and platform capabilities.",
-    marketingLabel: "Insights & research",
-    marketingDescription: "Occasional strategy notes and macro research tailored to your portfolio.",
-    securityTitle: "Security overview",
-    securityDescription: "Monitor account activity and keep your credentials protected.",
-    quickActionsTitle: "Quick actions",
-    refreshAction: "Refresh data",
-    contactSupportAction: "Contact support",
-    logoutAction: "Log out",
-    loadingTitle: "Loading your profile",
-    loadingSubtitle: "Retrieving secure account details...",
-    errorTitle: "Unable to load profile",
-    errorDescription: "We couldn’t fetch your profile data right now. Please retry in a few moments.",
-    retryLabel: "Try again",
-    successTitle: "Profile updated",
-    successDescription: "Your account preferences were refreshed successfully.",
-    noChangesTitle: "No updates detected",
-    noChangesDescription: "Make a change before saving—your current settings are already live.",
-    errorToastTitle: "Update failed",
-    genericError: "Something went wrong. Please try again.",
-    supportDescription: "Our support desk is available 24/7 for urgent trading matters.",
-    securityDevicesTitle: "Session activity",
-    lastPasswordChange: "Password last updated",
-    resetConfirmation: "Reverted changes",
-    resetDescription: "Your pending edits were discarded.",
-    refreshSuccess: "Profile refreshed",
-    refreshDescription: "Latest account data loaded."
+    heroSubtitle: "Manage your identity, security, and trading performance.",
+    personalInfo: "Personal Information",
+    security: "Security & Verification",
+    referrals: "Refer & Earn",
+    vouchers: "My Vouchers",
+    trades: "My Trades",
+    uuidLabel: "User UUID",
+    displayNameLabel: "Display Name",
+    bioLabel: "Short Bio",
+    saveChanges: "Save Changes",
+    saving: "Saving...",
+    verificationStatus: "Identity Verification",
+    notVerified: "Not Verified",
+    pending: "Pending",
+    verified: "Verified",
+    passwordLabel: "Password",
+    managePassword: "Change Password",
+    twoFactor: "2FA Authentication",
+    loginActivity: "Login Activity",
+    referralCode: "Referral Code",
+    referralLink: "Referral Link",
+    todayReferrals: "Today's Referrals",
+    monthReferrals: "30D Referrals",
+    yesterdayCommission: "Yesterday's Commission",
+    monthCommission: "30D Commission",
+    available: "Available",
+    unavailable: "Unavailable",
+    symbol: "Symbol",
+    side: "Side",
+    size: "Size",
+    entryExit: "Entry / Exit",
+    pnl: "PnL",
+    date: "Date",
+    copySuccess: "Copied to clipboard",
+    logout: "Log Out",
+    refresh: "Refresh Data",
+    support: "Contact Support"
   },
   ar: {
     heroTitle: "مركز الحساب",
-    heroSubtitle: "راجع ملفك الشخصي، وعدّل تفضيلاتك، واحرص على توافق تجربتك التداولية مع أهدافك.",
-    accountStatusLabel: "الحالة",
-    statusActive: "مفعل",
-    statusPending: "قيد المراجعة",
-    statusSuspended: "موقوف",
-    pageSubtitle: "يتم حفظ بياناتك الشخصية بأمان بواسطة تشفير بمستوى المؤسسات.",
-    emailLabel: "البريد الإلكتروني",
-    phoneLabel: "رقم الهاتف",
-    timezoneLabel: "المنطقة الزمنية",
-    lastLoginLabel: "آخر تسجيل دخول",
-    accountCreatedLabel: "عضو منذ",
-    notAvailable: "غير متوفر",
-    personalInformationTitle: "المعلومات الشخصية",
-    personalInformationDescription: "حافظ على بيانات دقيقة ليتمكن فريق الدعم والامتثال من التواصل معك عند الحاجة.",
-    fullNameLabel: "الاسم الكامل",
-    fullNamePlaceholder: "مثال: سارة عبد الله",
-    emailPlaceholder: "name@nexttrade.app",
-    phonePlaceholder: "+971 50 123 4567",
-    jobTitleLabel: "المسمى الوظيفي",
-    jobTitlePlaceholder: "مدير محفظة",
-    languageLabel: "اللغة",
-    languagePlaceholder: "اختر اللغة",
-    timezonePlaceholder: "اختر المنطقة الزمنية",
-    saveButton: "حفظ التغييرات",
-    savingLabel: "جارٍ الحفظ...",
-    resetButton: "إعادة تعيين",
-    preferencesTitle: "تفضيلات التواصل",
-    preferencesDescription: "حدد الطريقة المناسبة لاستقبال تنبيهات السوق والتحديثات.",
-    tradeAlertsLabel: "تنبيهات التداول",
-    tradeAlertsDescription: "استقبل إشعارات فورية بالصفقات المنفذة ومتطلبات الهامش.",
-    productUpdatesLabel: "تحديثات المنتجات",
-    productUpdatesDescription: "كن أول من يعرف الأصول الجديدة وقدرات المنصة.",
-    marketingLabel: "الأبحاث والتحليلات",
-    marketingDescription: "مذكرات استراتيجية وأبحاث اقتصادية مخصصة لمحفظتك من وقت لآخر.",
-    securityTitle: "نظرة أمنية",
-    securityDescription: "راقب نشاط الحساب وحافظ على سرية بيانات الدخول.",
-    quickActionsTitle: "إجراءات سريعة",
-    refreshAction: "تحديث البيانات",
-    contactSupportAction: "التواصل مع الدعم",
-    logoutAction: "تسجيل الخروج",
-    loadingTitle: "جاري تحميل الملف الشخصي",
-    loadingSubtitle: "يتم استرجاع بيانات الحساب الآمنة...",
-    errorTitle: "تعذر تحميل الملف الشخصي",
-    errorDescription: "لم نتمكن من جلب بياناتك الآن. يرجى المحاولة لاحقًا.",
-    retryLabel: "أعد المحاولة",
-    successTitle: "تم تحديث الملف",
-    successDescription: "تم تحديث تفضيلات حسابك بنجاح.",
-    noChangesTitle: "لا توجد تغييرات",
-    noChangesDescription: "قم بإجراء تعديل قبل الحفظ — إعداداتك الحالية مفعلة بالفعل.",
-    errorToastTitle: "فشل التحديث",
-    genericError: "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
-    supportDescription: "فريق الدعم متاح على مدار الساعة للحالات التداولية العاجلة.",
-    securityDevicesTitle: "نشاط الجلسات",
-    lastPasswordChange: "آخر تحديث لكلمة المرور",
-    resetConfirmation: "تم التراجع عن التغييرات",
-    resetDescription: "تم تجاهل التعديلات الحالية.",
-    refreshSuccess: "تم التحديث",
-    refreshDescription: "تم تحميل أحدث بيانات الحساب."
+    heroSubtitle: "إدارة هويتك وأمنك وأداء التداول الخاص بك.",
+    personalInfo: "المعلومات الشخصية",
+    security: "الأمن والتحقق",
+    referrals: "الإحالة والكسب",
+    vouchers: "قسائمي",
+    trades: "تداولاتي",
+    uuidLabel: "معرف المستخدم (UUID)",
+    displayNameLabel: "اسم العرض",
+    bioLabel: "نبذة قصيرة",
+    saveChanges: "حفظ التغييرات",
+    saving: "جاري الحفظ...",
+    verificationStatus: "حالة التحقق من الهوية",
+    notVerified: "غير موثق",
+    pending: "قيد الانتظار",
+    verified: "موثق",
+    passwordLabel: "كلمة المرور",
+    managePassword: "تغيير كلمة المرور",
+    twoFactor: "المصادقة الثنائية (2FA)",
+    loginActivity: "نشاط تسجيل الدخول",
+    referralCode: "كود الإحالة",
+    referralLink: "رابط الإحالة",
+    todayReferrals: "إحالات اليوم",
+    monthReferrals: "إحالات 30 يوم",
+    yesterdayCommission: "عمولة الأمس",
+    monthCommission: "عمولة 30 يوم",
+    available: "متاح",
+    unavailable: "غير متاح",
+    symbol: "الرمز",
+    side: "الجانب",
+    size: "الحجم",
+    entryExit: "الدخول / الخروج",
+    pnl: "الربح والخسارة",
+    date: "التاريخ",
+    copySuccess: "تم النسخ إلى الحافظة",
+    logout: "تسجيل الخروج",
+    refresh: "تحديث البيانات",
+    support: "الدعم الفني"
   }
 };
 
-const languageOptions = [
-  { value: "en", label: { en: "English", ar: "الإنجليزية" } },
-  { value: "ar", label: { en: "Arabic", ar: "العربية" } }
-];
-
-const timezoneOptions = [
-  "UTC",
-  "Asia/Dubai",
-  "Asia/Riyadh",
-  "Europe/London",
-  "America/New_York"
-];
-
 const normalizeUserProfile = (user = {}) => {
-  const fullName =
-    user.fullName ||
-    user.name ||
-    [user.firstName, user.lastName].filter(Boolean).join(" ");
-
   return {
-    fullName: fullName || "",
+    uuid: user.id || user.uuid || "---",
+    fullName: user.fullName || user.name || "",
     email: user.email || "",
-    phone: user.phone || user.phoneNumber || "",
-    jobTitle: user.jobTitle || user.position || "",
-    timezone: user.timezone || user.timeZone || "UTC",
-    languagePreference: user.language || user.locale || "en",
-    preferences: {
-      ...defaultPreferences,
-      ...(typeof user.preferences === "object" && user.preferences ? user.preferences : {})
-    }
+    phone: user.phone || "",
+    bio: user.bio || "",
+    avatarUrl: user.avatarUrl || user.avatar || "",
+    verificationStatus: user.verificationStatus || "not_verified",
+    twoFactorEnabled: user.twoFactorEnabled || false,
+    referralCode: user.referralCode || "NEXT-7829",
+    referralLink: user.referralLink || `https://nexttrade.app/ref/${user.referralCode || "NEXT-7829"}`
   };
 };
 
-const cloneProfileState = (state = {}) => ({
-  ...state,
-  preferences: {
-    ...(state.preferences || {})
-  }
-});
-
-const preferencesAreEqual = (a = {}, b = {}) => {
-  const keys = new Set([...Object.keys(a || {}), ...Object.keys(b || {})]);
-  for (const key of keys) {
-    if ((a?.[key] ?? false) !== (b?.[key] ?? false)) {
-      return false;
-    }
-  }
-  return true;
-};
-
-const buildUpdatePayload = (initial = {}, current = {}) => {
-  const payload = {};
-
-  if ((initial.fullName || "") !== (current.fullName || "")) {
-    payload.fullName = current.fullName;
-    payload.name = current.fullName;
-  }
-
-  if ((initial.email || "") !== (current.email || "")) {
-    payload.email = current.email;
-  }
-
-  if ((initial.phone || "") !== (current.phone || "")) {
-    payload.phone = current.phone;
-  }
-
-  if ((initial.jobTitle || "") !== (current.jobTitle || "")) {
-    payload.jobTitle = current.jobTitle;
-  }
-
-  if ((initial.timezone || "") !== (current.timezone || "")) {
-    payload.timezone = current.timezone;
-  }
-
-  if ((initial.languagePreference || "") !== (current.languagePreference || "")) {
-    payload.language = current.languagePreference;
-  }
-
-  if (!preferencesAreEqual(initial.preferences, current.preferences)) {
-    payload.preferences = current.preferences;
-  }
-
-  return payload;
-};
-
-const formatDateTime = (value, language, fallback) => {
-  if (!value) {
-    return fallback;
-  }
-
-  try {
-    const date = new Date(value);
-    if (Number.isNaN(date.getTime())) {
-      return fallback;
-    }
-    const locale = language === "ar" ? "ar-SA" : "en-US";
-    return new Intl.DateTimeFormat(locale, {
-      dateStyle: "medium",
-      timeStyle: "short"
-    }).format(date);
-  } catch {
-    return fallback;
-  }
-};
-
-const getStatusMeta = (status, t) => {
-  const normalized = (status || "active").toString().toLowerCase();
-  if (normalized.includes("suspend")) {
-    return { variant: "destructive", label: t.statusSuspended };
-  }
-  if (normalized.includes("pending") || normalized.includes("review")) {
-    return { variant: "secondary", label: t.statusPending };
-  }
-  return { variant: "default", label: t.statusActive };
-};
-
-const getSafeValue = (value, fallback) => {
-  if (value === null || value === undefined) {
-    return fallback;
-  }
-  if (typeof value === "string" && value.trim() === "") {
-    return fallback;
-  }
-  return value;
-};
-
-const InfoPill = ({ Icon, label, value }) => (
-  <div className="rounded-2xl border border-white/30 bg-white/10 px-4 py-3 backdrop-blur">
-    <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-white/70">
-      <Icon className="h-3.5 w-3.5" />
+const InfoPill = ({ label, value, icon: Icon }) => (
+  <div className="flex flex-col gap-1 rounded-xl border border-slate-100 bg-slate-50/50 p-4">
+    <div className="flex items-center gap-2 text-xs font-medium text-slate-500">
+      {Icon && <Icon className="h-3.5 w-3.5" />}
       <span>{label}</span>
     </div>
-    <p className="mt-1 text-sm font-semibold text-white">{value}</p>
+    <p className="text-lg font-bold text-slate-900">{value}</p>
   </div>
 );
 
-InfoPill.propTypes = {
-  Icon: PropTypes.elementType.isRequired,
-  label: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired
-};
-
-const PreferenceRow = ({ label, description, checked, onCheckedChange }) => (
-  <div className="flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm transition hover:border-slate-300">
-    <div className="flex items-center justify-between gap-4">
-      <div>
-        <p className="text-sm font-semibold text-slate-900">{label}</p>
-        <p className="text-xs text-slate-500">{description}</p>
+const SecurityItem = ({ title, status, actionLabel, icon: Icon, statusColor = "text-slate-500" }) => (
+  <div className="flex items-center justify-between py-4 border-b border-slate-100 last:border-0">
+    <div className="flex items-center gap-4">
+      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100">
+        <Icon className="h-5 w-5 text-slate-600" />
       </div>
-      <Switch checked={checked} onCheckedChange={onCheckedChange} />
+      <div>
+        <p className="text-sm font-semibold text-slate-900">{title}</p>
+        <p className={`text-xs ${statusColor}`}>{status}</p>
+      </div>
     </div>
+    <Button variant="ghost" size="sm" className="text-blue-600 hover:text-blue-700 hover:bg-blue-50">
+      {actionLabel} <ChevronRight className="ml-1 h-4 w-4" />
+    </Button>
   </div>
 );
 
-PreferenceRow.propTypes = {
-  label: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  checked: PropTypes.bool.isRequired,
-  onCheckedChange: PropTypes.func.isRequired
-};
-
-const LoadingView = ({ language }) => {
-  const t = translations[language] || translations.en;
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-slate-50 to-slate-100" dir={language === "ar" ? "rtl" : "ltr"}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="space-y-6">
-          <div className="space-y-2">
-            <h1 className="text-2xl font-semibold text-slate-900">{t.loadingTitle}</h1>
-            <p className="text-sm text-slate-500">{t.loadingSubtitle}</p>
+const VoucherCard = ({ title, condition, expiry, status, available }) => (
+  <Card className={`overflow-hidden border-slate-200 ${!available ? 'opacity-60 grayscale' : ''}`}>
+    <div className="flex h-full">
+      <div className={`flex w-24 flex-col items-center justify-center gap-1 ${available ? 'bg-blue-600' : 'bg-slate-400'} text-white`}>
+        <Gift className="h-8 w-8" />
+        <span className="text-[10px] font-bold uppercase tracking-wider">Voucher</span>
+      </div>
+      <div className="flex flex-1 flex-col p-4">
+        <div className="flex items-start justify-between">
+          <h4 className="font-bold text-slate-900">{title}</h4>
+          <Badge variant={available ? "default" : "secondary"} className="text-[10px]">
+            {status}
+          </Badge>
+        </div>
+        <p className="mt-1 text-xs text-slate-500">{condition}</p>
+        <div className="mt-auto pt-4 flex items-center justify-between">
+          <div className="flex items-center gap-1 text-[10px] text-slate-400">
+            <Clock className="h-3 w-3" />
+            <span>Expires: {expiry}</span>
           </div>
-          <Skeleton className="h-48 w-full rounded-3xl" />
-          <div className="grid gap-6 lg:grid-cols-2">
-            <Skeleton className="h-72 w-full rounded-3xl" />
-            <Skeleton className="h-72 w-full rounded-3xl" />
-          </div>
+          {available && (
+            <Button size="sm" className="h-7 px-3 text-[10px]">Use Now</Button>
+          )}
         </div>
       </div>
     </div>
-  );
-};
-
-LoadingView.propTypes = {
-  language: PropTypes.oneOf(["en", "ar"]).isRequired
-};
+  </Card>
+);
 
 export default function Profile({ language }) {
   const t = translations[language] || translations.en;
@@ -364,50 +215,20 @@ export default function Profile({ language }) {
 
   const [user, setUser] = useState(null);
   const [formState, setFormState] = useState(null);
-  const [initialState, setInitialState] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [isRefreshing, setIsRefreshing] = useState(false);
   const [saving, setSaving] = useState(false);
-  const [error, setError] = useState(null);
 
-  const initials = useMemo(() => {
-    const name = formState?.fullName;
-    if (!name || !name.trim()) {
-      return "NT";
-    }
-    const parts = name.trim().split(" ").filter(Boolean);
-    if (!parts.length) {
-      return "NT";
-    }
-    return parts
-      .slice(0, 2)
-      .map((part) => part.charAt(0).toUpperCase())
-      .join("");
-  }, [formState?.fullName]);
-
-  const loadUser = useCallback(async ({ silent = false } = {}) => {
-    if (silent) {
-      setIsRefreshing(true);
-    } else {
-      setLoading(true);
-    }
-    setError(null);
-
+  const loadUser = useCallback(async () => {
+    setLoading(true);
     try {
       const data = await fetchCurrentUser();
       const normalized = normalizeUserProfile(data);
       setUser(data);
-      const cloned = cloneProfileState(normalized);
-      setFormState(cloned);
-      setInitialState(cloneProfileState(normalized));
+      setFormState(normalized);
     } catch (err) {
-      setError(err);
+      console.error("Failed to load user", err);
     } finally {
-      if (silent) {
-        setIsRefreshing(false);
-      } else {
-        setLoading(false);
-      }
+      setLoading(false);
     }
   }, []);
 
@@ -415,380 +236,407 @@ export default function Profile({ language }) {
     loadUser();
   }, [loadUser]);
 
-  const handlePreferenceChange = (key, value) => {
-    setFormState((prev) => ({
-      ...prev,
-      preferences: {
-        ...prev.preferences,
-        [key]: value
-      }
-    }));
+  const handleCopy = (text) => {
+    navigator.clipboard.writeText(text);
+    toast({
+      title: t.copySuccess,
+      duration: 2000
+    });
   };
-
-  const handleInputChange = (field) => (event) => {
-    const { value } = event.target;
-    setFormState((prev) => ({
-      ...prev,
-      [field]: value
-    }));
-  };
-
-  const handleSelectChange = (field) => (value) => {
-    setFormState((prev) => ({
-      ...prev,
-      [field]: value
-    }));
-  };
-
-  const hasChanges = useMemo(() => {
-    if (!initialState || !formState) {
-      return false;
-    }
-    return Object.keys(buildUpdatePayload(initialState, formState)).length > 0;
-  }, [initialState, formState]);
 
   const handleSave = async () => {
-    if (!initialState || !formState) {
-      return;
-    }
-    const payload = buildUpdatePayload(initialState, formState);
-    if (!Object.keys(payload).length) {
-      toast({
-        title: t.noChangesTitle,
-        description: t.noChangesDescription
-      });
-      return;
-    }
-
+    setSaving(true);
     try {
-      setSaving(true);
-      const updated = await updateCurrentUser(payload);
-      const mergedUser = { ...(user || {}), ...(updated || {}) };
-      const normalized = normalizeUserProfile(mergedUser);
-      setUser(mergedUser);
-      const cloned = cloneProfileState(normalized);
-      setInitialState(cloneProfileState(normalized));
-      setFormState(cloned);
+      await updateCurrentUser({
+        fullName: formState.fullName,
+        bio: formState.bio
+      });
       toast({
-        title: t.successTitle,
-        description: t.successDescription
+        title: "Profile updated successfully"
       });
     } catch (err) {
       toast({
         variant: "destructive",
-        title: t.errorToastTitle,
-        description: err?.message || t.genericError
+        title: "Update failed",
+        description: err.message
       });
     } finally {
       setSaving(false);
     }
   };
 
-  const handleReset = () => {
-    if (!initialState) {
-      return;
-    }
-    setFormState(cloneProfileState(initialState));
-    toast({
-      title: t.resetConfirmation,
-      description: t.resetDescription
-    });
-  };
-
-  const handleRefresh = () => {
-    loadUser({ silent: Boolean(user) }).then(() => {
-      if (user) {
-        toast({
-          title: t.refreshSuccess,
-          description: t.refreshDescription
-        });
-      }
-    });
-  };
-
-  const handleSupport = () => {
-    navigate(createPageUrl("Contact"));
-  };
-
-  const handleLogout = async () => {
-    try {
-      await base44.auth.logout();
-    } catch (err) {
-      toast({
-        variant: "destructive",
-        title: t.errorToastTitle,
-        description: err?.message || t.genericError
-      });
-    }
-  };
-
   if (loading) {
-    return <LoadingView language={language} />;
-  }
-
-  const isUnauthorized = error?.status === 401 || error?.status === 403 || error?.code === "UNAUTHORIZED";
-  if (isUnauthorized) {
-    return <UserNotRegisteredError />;
-  }
-
-  if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-white via-slate-50 to-slate-100" dir={language === "ar" ? "rtl" : "ltr"}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <Card className="rounded-3xl border border-slate-200 shadow-xl">
-            <CardHeader>
-              <CardTitle className="text-2xl text-slate-900">{t.errorTitle}</CardTitle>
-              <CardDescription className="text-slate-500">{t.errorDescription}</CardDescription>
-            </CardHeader>
-            <CardFooter className="flex justify-end">
-              <Button onClick={() => loadUser()}>{t.retryLabel}</Button>
-            </CardFooter>
-          </Card>
+      <div className="min-h-screen bg-slate-50 p-8">
+        <div className="mx-auto max-w-6xl space-y-8">
+          <Skeleton className="h-32 w-full rounded-2xl" />
+          <div className="grid gap-8 lg:grid-cols-3">
+            <Skeleton className="h-96 lg:col-span-2 rounded-2xl" />
+            <Skeleton className="h-96 rounded-2xl" />
+          </div>
         </div>
       </div>
     );
   }
 
-  if (!formState) {
-    return null;
-  }
-
-  const statusMeta = getStatusMeta(user?.status, t);
-  const notAvailable = t.notAvailable;
-  const lastLogin = user?.lastLoginAt || user?.last_login_at || user?.lastLogin || user?.last_login;
-  const createdAt = user?.createdAt || user?.created_at;
-  const passwordUpdatedAt = user?.passwordUpdatedAt || user?.password_updated_at;
+  if (!formState) return <UserNotRegisteredError />;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-slate-50 to-slate-100 pb-16" dir={language === "ar" ? "rtl" : "ltr"}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 lg:pt-16 space-y-10">
-        <section className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 px-6 py-10 shadow-2xl">
-          <div className="absolute inset-0 opacity-30">
-            <div className="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-white/40 blur-3xl" />
-            <div className="absolute bottom-0 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-cyan-400/40 blur-3xl" />
-          </div>
-          <div className="relative z-10 flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-            <div className="flex items-start gap-6">
-              <Avatar className="h-20 w-20 border-2 border-white/40 shadow-lg">
-                <AvatarImage src={user?.avatarUrl || user?.avatar || ""} alt={formState.fullName || "User"} />
-                <AvatarFallback className="bg-white/90 text-lg font-semibold text-slate-900">
-                  {initials}
+    <div className="min-h-screen bg-slate-50 pb-20 pt-8" dir={language === "ar" ? "rtl" : "ltr"}>
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        
+        {/* Header Section */}
+        <div className="mb-8 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center gap-5">
+            <div className="relative">
+              <Avatar className="h-20 w-20 border-4 border-white shadow-sm">
+                <AvatarImage src={formState.avatarUrl} />
+                <AvatarFallback className="bg-blue-600 text-xl font-bold text-white">
+                  {formState.fullName?.charAt(0) || "U"}
                 </AvatarFallback>
               </Avatar>
-              <div className="space-y-3">
-                <div className="flex flex-wrap items-center gap-3">
-                  <h1 className="text-3xl font-bold text-white sm:text-4xl">{t.heroTitle}</h1>
-                  <Badge
-                    variant={statusMeta.variant}
-                    className="border-white/40 bg-white/20 text-xs font-semibold uppercase tracking-wide text-white"
-                  >
-                    {statusMeta.label}
-                  </Badge>
-                </div>
-                <p className="max-w-2xl text-sm leading-relaxed text-white/80">{t.heroSubtitle}</p>
+              <button className="absolute bottom-0 right-0 flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-slate-100 text-slate-600 hover:bg-slate-200">
+                <Upload className="h-3.5 w-3.5" />
+              </button>
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold text-slate-900">{formState.fullName || "User"}</h1>
+              <div className="mt-1 flex items-center gap-2">
+                <Badge variant="outline" className="bg-white text-[10px] font-mono">
+                  ID: {formState.uuid}
+                </Badge>
+                <Badge className={formState.verificationStatus === 'verified' ? 'bg-emerald-500' : 'bg-amber-500'}>
+                  {formState.verificationStatus === 'verified' ? t.verified : t.notVerified}
+                </Badge>
               </div>
             </div>
-            <Button
-              variant="secondary"
-              className="bg-white/10 text-white hover:bg-white/20"
-              onClick={handleSave}
-              disabled={saving || !hasChanges}
-            >
-              {saving ? t.savingLabel : t.saveButton}
+          </div>
+          <div className="flex items-center gap-3">
+            <Button variant="outline" size="sm" onClick={() => loadUser()} className="bg-white">
+              <RefreshCw className="mr-2 h-4 w-4" /> {t.refresh}
+            </Button>
+            <Button variant="destructive" size="sm" onClick={() => base44.auth.logout()}>
+              <LogOut className="mr-2 h-4 w-4" /> {t.logout}
             </Button>
           </div>
-          <div className="relative z-10 mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <InfoPill Icon={Mail} label={t.emailLabel} value={getSafeValue(formState.email, notAvailable)} />
-            <InfoPill Icon={Phone} label={t.phoneLabel} value={getSafeValue(formState.phone, notAvailable)} />
-            <InfoPill Icon={Globe2} label={t.timezoneLabel} value={getSafeValue(formState.timezone, notAvailable)} />
-            <InfoPill
-              Icon={Clock}
-              label={t.lastLoginLabel}
-              value={formatDateTime(lastLogin, language, notAvailable)}
-            />
-          </div>
-        </section>
-
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,_2fr)_minmax(0,_1fr)]">
-          <div className="space-y-8">
-            <Card className="rounded-3xl border border-slate-200 shadow-lg">
-              <CardHeader className="space-y-3">
-                <CardTitle className="text-xl text-slate-900">{t.personalInformationTitle}</CardTitle>
-                <CardDescription className="text-slate-500">{t.personalInformationDescription}</CardDescription>
-              </CardHeader>
-              <CardContent className="grid gap-6">
-                <div className="grid gap-6 md:grid-cols-2">
-                  <div className="space-y-2">
-                    <Label htmlFor="fullName">{t.fullNameLabel}</Label>
-                    <Input
-                      id="fullName"
-                      value={formState.fullName}
-                      onChange={handleInputChange("fullName")}
-                      placeholder={t.fullNamePlaceholder}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">{t.emailLabel}</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formState.email}
-                      onChange={handleInputChange("email")}
-                      placeholder={t.emailPlaceholder}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">{t.phoneLabel}</Label>
-                    <Input
-                      id="phone"
-                      value={formState.phone}
-                      onChange={handleInputChange("phone")}
-                      placeholder={t.phonePlaceholder}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="jobTitle">{t.jobTitleLabel}</Label>
-                    <Input
-                      id="jobTitle"
-                      value={formState.jobTitle}
-                      onChange={handleInputChange("jobTitle")}
-                      placeholder={t.jobTitlePlaceholder}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="languagePreference">{t.languageLabel}</Label>
-                    <Select
-                      value={formState.languagePreference}
-                      onValueChange={handleSelectChange("languagePreference")}
-                    >
-                      <SelectTrigger id="languagePreference">
-                        <SelectValue placeholder={t.languagePlaceholder} />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {languageOptions.map((option) => (
-                          <SelectItem key={option.value} value={option.value}>
-                            {option.label[language]}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="timezone">{t.timezoneLabel}</Label>
-                    <Select value={formState.timezone} onValueChange={handleSelectChange("timezone")}>
-                      <SelectTrigger id="timezone">
-                        <SelectValue placeholder={t.timezonePlaceholder} />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {timezoneOptions.map((option) => (
-                          <SelectItem key={option} value={option}>
-                            {option}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-              </CardContent>
-              <CardFooter className="flex flex-wrap items-center justify-end gap-3 border-t border-slate-100 bg-slate-50/60">
-                <Button variant="ghost" onClick={handleReset} disabled={saving || !hasChanges}>
-                  {t.resetButton}
-                </Button>
-                <Button onClick={handleSave} disabled={saving || !hasChanges}>
-                  {saving ? t.savingLabel : t.saveButton}
-                </Button>
-              </CardFooter>
-            </Card>
-
-            <Card className="rounded-3xl border border-slate-200 shadow-lg">
-              <CardHeader className="space-y-3">
-                <CardTitle className="text-xl text-slate-900">{t.preferencesTitle}</CardTitle>
-                <CardDescription className="text-slate-500">{t.preferencesDescription}</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <PreferenceRow
-                  label={t.tradeAlertsLabel}
-                  description={t.tradeAlertsDescription}
-                  checked={formState.preferences.tradeAlerts}
-                  onCheckedChange={(value) => handlePreferenceChange("tradeAlerts", value)}
-                />
-                <PreferenceRow
-                  label={t.productUpdatesLabel}
-                  description={t.productUpdatesDescription}
-                  checked={formState.preferences.productUpdates}
-                  onCheckedChange={(value) => handlePreferenceChange("productUpdates", value)}
-                />
-                <PreferenceRow
-                  label={t.marketingLabel}
-                  description={t.marketingDescription}
-                  checked={formState.preferences.marketing}
-                  onCheckedChange={(value) => handlePreferenceChange("marketing", value)}
-                />
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="space-y-8">
-            <Card className="rounded-3xl border border-slate-200 shadow-lg">
-              <CardHeader className="space-y-3">
-                <CardTitle className="flex items-center gap-2 text-lg text-slate-900">
-                  <RefreshCw className="h-5 w-5 text-blue-600" />
-                  {t.quickActionsTitle}
-                </CardTitle>
-                <CardDescription className="text-slate-500">{t.supportDescription}</CardDescription>
-              </CardHeader>
-              <CardContent className="grid gap-3">
-                <Button
-                  variant="outline"
-                  className="justify-start gap-3"
-                  onClick={handleRefresh}
-                  disabled={isRefreshing}
-                >
-                  {isRefreshing ? <Loader2 className="h-4 w-4 animate-spin" /> : <RefreshCw className="h-4 w-4" />}
-                  <span>{t.refreshAction}</span>
-                </Button>
-                <Button variant="secondary" className="justify-start gap-3" onClick={handleSupport}>
-                  <LifeBuoy className="h-4 w-4" />
-                  <span>{t.contactSupportAction}</span>
-                </Button>
-                <Button variant="destructive" className="justify-start gap-3" onClick={handleLogout}>
-                  <LogOut className="h-4 w-4" />
-                  <span>{t.logoutAction}</span>
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="rounded-3xl border border-slate-200 shadow-lg">
-              <CardHeader className="space-y-3">
-                <CardTitle className="flex items-center gap-2 text-lg text-slate-900">
-                  <ShieldCheck className="h-5 w-5 text-emerald-500" />
-                  {t.securityTitle}
-                </CardTitle>
-                <CardDescription className="text-slate-500">{t.securityDescription}</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
-                  <p className="text-xs font-semibold uppercase text-slate-500">{t.lastLoginLabel}</p>
-                  <p className="text-sm font-medium text-slate-900">
-                    {formatDateTime(lastLogin, language, notAvailable)}
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
-                  <p className="text-xs font-semibold uppercase text-slate-500">{t.accountCreatedLabel}</p>
-                  <p className="text-sm font-medium text-slate-900">
-                    {formatDateTime(createdAt, language, notAvailable)}
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
-                  <p className="text-xs font-semibold uppercase text-slate-500">{t.lastPasswordChange}</p>
-                  <p className="text-sm font-medium text-slate-900">
-                    {formatDateTime(passwordUpdatedAt, language, notAvailable)}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
         </div>
+
+        <Tabs defaultValue="personal" className="space-y-8">
+          <TabsList className="h-auto w-full justify-start gap-8 border-b border-slate-200 bg-transparent p-0">
+            <TabsTrigger value="personal" className="rounded-none border-b-2 border-transparent px-1 pb-4 pt-0 data-[state=active]:border-blue-600 data-[state=active]:bg-transparent data-[state=active]:text-blue-600">
+              {t.personalInfo}
+            </TabsTrigger>
+            <TabsTrigger value="security" className="rounded-none border-b-2 border-transparent px-1 pb-4 pt-0 data-[state=active]:border-blue-600 data-[state=active]:bg-transparent data-[state=active]:text-blue-600">
+              {t.security}
+            </TabsTrigger>
+            <TabsTrigger value="referrals" className="rounded-none border-b-2 border-transparent px-1 pb-4 pt-0 data-[state=active]:border-blue-600 data-[state=active]:bg-transparent data-[state=active]:text-blue-600">
+              {t.referrals}
+            </TabsTrigger>
+            <TabsTrigger value="vouchers" className="rounded-none border-b-2 border-transparent px-1 pb-4 pt-0 data-[state=active]:border-blue-600 data-[state=active]:bg-transparent data-[state=active]:text-blue-600">
+              {t.vouchers}
+            </TabsTrigger>
+            <TabsTrigger value="trades" className="rounded-none border-b-2 border-transparent px-1 pb-4 pt-0 data-[state=active]:border-blue-600 data-[state=active]:bg-transparent data-[state=active]:text-blue-600">
+              {t.trades}
+            </TabsTrigger>
+          </TabsList>
+
+          {/* Personal Information */}
+          <TabsContent value="personal" className="space-y-6">
+            <div className="grid gap-8 lg:grid-cols-3">
+              <Card className="lg:col-span-2 border-slate-200 shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg">{t.personalInfo}</CardTitle>
+                  <CardDescription>Update your public profile information.</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div className="space-y-2">
+                      <Label>{t.uuidLabel}</Label>
+                      <Input value={formState.uuid} readOnly className="bg-slate-50 font-mono text-xs" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label>{t.displayNameLabel}</Label>
+                      <Input 
+                        value={formState.fullName} 
+                        onChange={(e) => setFormState({...formState, fullName: e.target.value})}
+                        placeholder="Your display name" 
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <Label>{t.bioLabel}</Label>
+                    <Textarea 
+                      value={formState.bio} 
+                      onChange={(e) => setFormState({...formState, bio: e.target.value})}
+                      placeholder="Tell us a bit about your trading style..." 
+                      className="min-h-[120px]"
+                    />
+                  </div>
+                </CardContent>
+                <CardFooter className="border-t border-slate-100 bg-slate-50/50 py-4">
+                  <Button onClick={handleSave} disabled={saving}>
+                    {saving ? t.saving : t.saveChanges}
+                  </Button>
+                </CardFooter>
+              </Card>
+              
+              <div className="space-y-6">
+                <Card className="border-slate-200 shadow-sm">
+                  <CardHeader>
+                    <CardTitle className="text-lg">{t.support}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p className="text-sm text-slate-500">Need help with your account? Our team is available 24/7.</p>
+                    <Button variant="outline" className="w-full" onClick={() => navigate(createPageUrl("Contact"))}>
+                      <LifeBuoy className="mr-2 h-4 w-4" /> {t.support}
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </TabsContent>
+
+          {/* Security & Verification */}
+          <TabsContent value="security" className="space-y-6">
+            <div className="grid gap-8 lg:grid-cols-3">
+              <Card className="lg:col-span-2 border-slate-200 shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg">{t.security}</CardTitle>
+                  <CardDescription>Manage your account security and verification status.</CardDescription>
+                </CardHeader>
+                <CardContent className="divide-y divide-slate-100">
+                  <SecurityItem 
+                    title={t.verificationStatus} 
+                    status={formState.verificationStatus === 'verified' ? t.verified : t.notVerified}
+                    statusColor={formState.verificationStatus === 'verified' ? "text-emerald-600" : "text-amber-600"}
+                    actionLabel="Verify Now"
+                    icon={ShieldCheck}
+                  />
+                  <SecurityItem 
+                    title={t.passwordLabel} 
+                    status="Last changed 3 months ago"
+                    actionLabel="Update"
+                    icon={Lock}
+                  />
+                  <SecurityItem 
+                    title={t.twoFactor} 
+                    status={formState.twoFactorEnabled ? "Enabled" : "Disabled"}
+                    statusColor={formState.twoFactorEnabled ? "text-emerald-600" : "text-slate-500"}
+                    actionLabel="Setup"
+                    icon={ShieldCheck}
+                  />
+                </CardContent>
+              </Card>
+
+              <Card className="border-slate-200 shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg">{t.loginActivity}</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  {[1, 2, 3].map((i) => (
+                    <div key={i} className="flex items-start gap-3 text-xs">
+                      <div className="mt-0.5 h-2 w-2 rounded-full bg-emerald-500" />
+                      <div>
+                        <p className="font-semibold text-slate-900">Chrome on Windows</p>
+                        <p className="text-slate-500">Dubai, UAE • 192.168.1.{i}</p>
+                        <p className="text-slate-400">2 hours ago</p>
+                      </div>
+                    </div>
+                  ))}
+                </CardContent>
+              </Card>
+            </div>
+          </TabsContent>
+
+          {/* Refer & Earn */}
+          <TabsContent value="referrals" className="space-y-8">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <InfoPill label={t.todayReferrals} value="0" icon={User} />
+              <InfoPill label={t.monthReferrals} value="12" icon={User} />
+              <InfoPill label={t.yesterdayCommission} value="$0.00" icon={TrendingUp} />
+              <InfoPill label={t.monthCommission} value="$145.20" icon={TrendingUp} />
+            </div>
+
+            <div className="grid gap-8 lg:grid-cols-3">
+              <Card className="lg:col-span-2 border-slate-200 shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg">Referral Program</CardTitle>
+                  <CardDescription>Invite your friends and earn up to 40% commission on every trade they make.</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div className="grid gap-6 md:grid-cols-2">
+                    <div className="space-y-2">
+                      <Label>{t.referralCode}</Label>
+                      <div className="flex gap-2">
+                        <Input value={formState.referralCode} readOnly className="font-mono font-bold" />
+                        <Button variant="outline" size="icon" onClick={() => handleCopy(formState.referralCode)}>
+                          <Copy className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <Label>{t.referralLink}</Label>
+                      <div className="flex gap-2">
+                        <Input value={formState.referralLink} readOnly className="text-xs" />
+                        <Button variant="outline" size="icon" onClick={() => handleCopy(formState.referralLink)}>
+                          <Copy className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="rounded-xl border border-blue-100 bg-blue-50 p-4">
+                    <h4 className="text-sm font-bold text-blue-900">How it works</h4>
+                    <ul className="mt-2 space-y-2 text-xs text-blue-800">
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-3 w-3" /> Share your referral link with friends
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-3 w-3" /> They sign up and start trading
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <CheckCircle2 className="h-3 w-3" /> You receive instant commission on every trade
+                      </li>
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-slate-200 shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg">Recent Referrals</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    {[
+                      { id: "USR-9281", date: "2023-12-28", status: "Active", reward: "$12.40" },
+                      { id: "USR-4412", date: "2023-12-25", status: "Active", reward: "$8.15" },
+                      { id: "USR-1092", date: "2023-12-20", status: "Inactive", reward: "$0.00" }
+                    ].map((ref) => (
+                      <div key={ref.id} className="flex items-center justify-between border-b border-slate-100 pb-3 last:border-0 last:pb-0">
+                        <div>
+                          <p className="text-sm font-semibold text-slate-900">{ref.id}</p>
+                          <p className="text-[10px] text-slate-400">{ref.date}</p>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-sm font-bold text-emerald-600">{ref.reward}</p>
+                          <Badge variant="outline" className="h-4 text-[8px] uppercase">{ref.status}</Badge>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </TabsContent>
+
+          {/* Vouchers */}
+          <TabsContent value="vouchers" className="space-y-6">
+            <Tabs defaultValue="available" className="w-full">
+              <TabsList className="mb-6 bg-slate-100 p-1">
+                <TabsTrigger value="available" className="px-8">{t.available}</TabsTrigger>
+                <TabsTrigger value="unavailable" className="px-8">{t.unavailable}</TabsTrigger>
+              </TabsList>
+              <TabsContent value="available" className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <VoucherCard 
+                  title="$50 Trading Bonus" 
+                  condition="Min. deposit $500" 
+                  expiry="2024-02-15" 
+                  status="Active" 
+                  available={true} 
+                />
+                <VoucherCard 
+                  title="Zero Fee Trade" 
+                  condition="Valid for first 5 trades" 
+                  expiry="2024-01-30" 
+                  status="New" 
+                  available={true} 
+                />
+                <VoucherCard 
+                  title="10% Rebate" 
+                  condition="On all crypto pairs" 
+                  expiry="2024-03-01" 
+                  status="Active" 
+                  available={true} 
+                />
+              </TabsContent>
+              <TabsContent value="unavailable" className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <VoucherCard 
+                  title="$10 Welcome Bonus" 
+                  condition="New user registration" 
+                  expiry="2023-12-01" 
+                  status="Expired" 
+                  available={false} 
+                />
+                <VoucherCard 
+                  title="VIP Upgrade" 
+                  condition="Trade volume > $1M" 
+                  expiry="2023-11-15" 
+                  status="Used" 
+                  available={false} 
+                />
+              </TabsContent>
+            </Tabs>
+          </TabsContent>
+
+          {/* My Trades */}
+          <TabsContent value="trades" className="space-y-6">
+            <Card className="border-slate-200 shadow-sm overflow-hidden">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0">
+                <div>
+                  <CardTitle className="text-lg">{t.trades}</CardTitle>
+                  <CardDescription>Your recent trading history and performance.</CardDescription>
+                </div>
+                <Button variant="outline" size="sm">
+                  <ExternalLink className="mr-2 h-4 w-4" /> Export CSV
+                </Button>
+              </CardHeader>
+              <CardContent className="p-0">
+                <Table>
+                  <TableHeader className="bg-slate-50">
+                    <TableRow>
+                      <TableHead className="font-bold">{t.symbol}</TableHead>
+                      <TableHead className="font-bold">{t.side}</TableHead>
+                      <TableHead className="font-bold">{t.size}</TableHead>
+                      <TableHead className="font-bold">{t.entryExit}</TableHead>
+                      <TableHead className="font-bold">{t.pnl}</TableHead>
+                      <TableHead className="text-right font-bold">{t.date}</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {[
+                      { symbol: "BTC/USDT", side: "Buy", size: "0.45", entry: "42,150.00", exit: "43,200.00", pnl: "+$472.50", status: "profit", date: "2023-12-30 14:22" },
+                      { symbol: "ETH/USDT", side: "Sell", size: "2.50", entry: "2,240.50", exit: "2,210.00", pnl: "+$76.25", status: "profit", date: "2023-12-29 09:15" },
+                      { symbol: "SOL/USDT", side: "Buy", size: "150.00", entry: "105.20", exit: "102.40", pnl: "-$420.00", status: "loss", date: "2023-12-28 18:40" },
+                      { symbol: "BTC/USDT", side: "Sell", size: "0.12", entry: "44,100.00", exit: "43,850.00", pnl: "+$30.00", status: "profit", date: "2023-12-27 11:05" },
+                      { symbol: "BNB/USDT", side: "Buy", size: "25.00", entry: "312.40", exit: "315.20", pnl: "+$70.00", status: "profit", date: "2023-12-26 16:30" }
+                    ].map((trade, i) => (
+                      <TableRow key={i}>
+                        <TableCell className="font-bold">{trade.symbol}</TableCell>
+                        <TableCell>
+                          <Badge variant="outline" className={trade.side === 'Buy' ? 'text-emerald-600 border-emerald-200 bg-emerald-50' : 'text-rose-600 border-rose-200 bg-rose-50'}>
+                            {trade.side}
+                          </Badge>
+                        </TableCell>
+                        <TableCell>{trade.size}</TableCell>
+                        <TableCell className="text-xs text-slate-500">
+                          {trade.entry} → {trade.exit}
+                        </TableCell>
+                        <TableCell className={`font-bold ${trade.status === 'profit' ? 'text-emerald-600' : 'text-rose-600'}`}>
+                          <div className="flex items-center gap-1">
+                            {trade.status === 'profit' ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
+                            {trade.pnl}
+                          </div>
+                        </TableCell>
+                        <TableCell className="text-right text-xs text-slate-400">{trade.date}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </CardContent>
+            </Card>
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );
